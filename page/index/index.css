@@ -1,3 +1,300 @@
-.test-h1 {
-    background-color: red;
+:root {
+  --index-top-padding: 103.3px;
+  --circle-size: 650px;
+  --shrink-scale: scale(0.9);
+  --main-color: #fd7e14;
+}
+/* 메인 원 애니메이션 */
+@keyframes circle-ani {
+  0% {
+    width: var(--circle-size);
+    height: var(--circle-size);
+  }
+  50% {
+    width: 100px;
+    height: 100px;
+  }
+  100% {
+    width: var(--circle-size);
+    height: var(--circle-size);
+  }
+}
+/* 원+텍스트 작아지는 애니메이션 */
+@keyframes mini-circle-container {
+  100% {
+    transform: var(--shrink-scale);
+  }
+}
+/* 메뉴 나오게 */
+@keyframes side-menu-ani {
+  0% {
+    flex-basis: 0%;
+    transform: scaleX(0);
+  }
+  100% {
+    flex-basis: 45%;
+    transform: scaleX(1);
+  }
+}
+
+/* 컬럼일때 사이드메뉴 애니메이션 */
+@keyframes side-menu-ani-y {
+  0% {
+    flex-basis: 0%;
+    transform: scaleY(0);
+  }
+  100% {
+    flex-basis: 50%;
+    transform: scaleY(1);
+  }
+}
+@keyframes text-ani {
+  /* 0%{
+  
+    } */
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes bg-img-ani {
+    0%   {  background-size: 100% auto; }
+    100% {  background-size: 130% auto; }
+}
+
+html {
+  background-color: rgb(46, 46, 46);
+  opacity: 1;
+}
+
+.navbar {
+  background-color: white;
+}
+
+#mainNav .navbar-nav li.nav-item a.nav-link,
+.navbar-brand {
+  color: rgb(216, 67, 67) !important;
+}
+
+.index-section {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(22, 22, 22);
+}
+
+.circle-ani-container {
+  position: absolute;
+  flex-grow: 0;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: mini-circle-container 1s 2s forwards;
+}
+
+.index-text {
+  perspective: 500px;
+  mix-blend-mode: difference;
+  z-index: 12;
+  font-size: 100px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+}
+.index-subText {
+  transform: rotateX(270deg);
+  transform-origin: bottom;
+  animation: text-ani 1.2s forwards;
+}
+.index-mainText {
+  transform-origin: bottom;
+  transform: rotateX(270deg);
+  animation: text-ani 1.2s forwards;
+
+  font-size: 150px;
+}
+
+.index-menu-container {
+  transform: scaleX(0);
+  transform-origin: left;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: 0%;
+  animation: side-menu-ani 1s 2s forwards;
+}
+
+.no-drag {
+  -ms-user-select: none;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+
+.index-menu-item {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: bold;
+  color: rgb(238, 238, 238);
+  border: 1px solid rgb(39, 39, 39);
+  /* color: var(--main-color); */
+  flex-basis: 30%;
+}
+.index-menu-item > div {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.384);
+  z-index: 30;
+}
+.index-menu-item:hover > div {
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.61);
+  color: rgb(48, 48, 48);
+}
+.index-menu-item::before {
+  z-index: 10;
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.7s;
+  background-color: rgba(0, 0, 0, 0.712);
+}
+
+.index-menu-item:hover:before {
+  background-color: rgba(0, 0, 0, 0);
+}
+.index-menu-item:nth-child(1) {
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  background-image: url("https://previews.123rf.com/images/kikujungboy/kikujungboy1712/kikujungboy171200213/91927090-%EC%84%9C%EC%9A%B8-%ED%95%9C%EA%B5%AD-2017-%EB%85%84-11-%EC%9B%94-14-%EC%9D%BC-%ED%99%8D%EB%8C%80-%ED%99%8D%EC%9D%B5-%EB%8C%80%ED%95%99%EA%B5%90-%EC%87%BC%ED%95%91-%EA%B1%B0%EB%A6%AC-%ED%99%8D%EB%8C%80%EB%8A%94-%EC%84%9C%EC%9A%B8%EC%9D%98-%EC%A0%8A%EC%9D%80%EC%9D%B4%EB%93%A4%EC%9D%84%EC%9C%84%ED%95%9C-%EC%87%BC%ED%95%91-%EB%AC%B8%ED%99%94-%EA%B1%B0%EB%A6%AC%EC%9E%85%EB%8B%88%EB%8B%A4-.jpg");
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
+}
+.index-menu-item:nth-child(1):hover,
+.index-menu-item:nth-child(2):hover,
+.index-menu-item:nth-child(3):hover {
+  /* background-size: 100%; */
+  animation: bg-img-ani 1s forwards;
+}
+.index-menu-item:nth-child(2) {
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  background-image: url("https://t1.daumcdn.net/cfile/tistory/9923143E5CDE636C07");
+}
+.index-menu-item:nth-child(3) {
+  background-position: center;
+  background-size: contain;
+  /* background-repeat: no-repeat; */
+  background-image: url("https://withmon.com/wp-content/uploads/2017/02/%EB%A9%94%EC%9D%B8%ED%8E%98%EC%9D%B4%EC%A7%80-%ED%97%A4%EB%8D%94_%EC%A0%81%EB%A6%BD%EA%B8%88_720_320.png");
+}
+
+.index-circle {
+  position: absolute;
+  z-index: 11;
+  width: 100px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  animation: circle-ani 1.7s cubic-bezier(0.25, 0.1, 0.69, 1.6) forwards;
+}
+
+.index-circle:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.mouse-pet {
+  z-index: 1050;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  pointer-events: none;
+}
+
+@media (max-width: 1200px) {
+  :root {
+    /* --index-top-padding: 82px; */
+    --circle-size: 500px;
+  }
+  .index-text {
+    font-size: 80px;
+  }
+  .index-menu-container {
+    padding-right: 20px;
+    margin-right: 20px;
+  }
+}
+@media (max-width: 992px) {
+  :root {
+    --circle-size: 370px;
+    --shrink-scale: scale(0.7);
+  }
+  .index-section {
+    flex-direction: column;
+  }
+  .index-menu-container {
+    padding-right: 0px;
+    margin-right: 0px;
+    transform-origin: top;
+    animation: side-menu-ani-y 1s 1.9s forwards;
+  }
+  .circle-ani-container {
+    flex-basis: 30%;
+  }
+  .index-menu-item {
+    width: 80vw;
+  }
+  .index-text {
+    font-size: 60px;
+  }
+  .index-mainText {
+    transform-origin: bottom;
+    transform: rotateX(270deg);
+    animation: text-ani 1.2s forwards;
+
+    font-size: 100px;
+  }
+}
+@media (max-width: 892px) {
+  :root {
+    --index-top-padding: 73.78px;
+  }
+}
+@media (max-width: 370px) {
+  :root {
+    --circle-size: 280px;
+  }
+  .index-text {
+    min-height: 250px;
+    font-size: 40px;
+  }
+  #index-footer {
+    display: none;
+  }
 }
