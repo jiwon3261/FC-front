@@ -1,0 +1,233 @@
+.row > div:nth-child(0) {
+  order: 2;
+}
+.row > div:nth-child(1) {
+  order: 1;
+}
+/*콘텐츠영역*/
+.page-secition{
+  padding: 10rem 0;
+}
+.card {
+  padding: 10px;
+}
+/*테이블*/ 
+.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: #dee2e6 !important;
+}
+.table td:last-child {
+  width: 10%;
+  padding: 35px 8px 8px 8px;
+}
+/*탭 디자인*/
+.tab-content {
+  width: 100%;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow-x: hidden;
+  overflow: auto;
+}
+.tab-content::-webkit-scrollbar {
+  width: 6px;
+}
+.tab-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.tab-content::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+.tab-content::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+.tab-pane {
+  width: 100%;
+  margin: auto;
+}
+.icon-demo-examples .bi {
+  width: 1em;
+  height: 1em;
+}
+/*찜한상품*/
+.like-item-wrap {
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #caf1e9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color:rgb(68, 68, 68);
+}
+.like-item-wrap > div {
+  display: flex;
+  align-items: center;
+}
+.like-item-wrap h4 {
+  display: inline;
+  margin-bottom: 0 !important;
+}
+.like-item-wrap .nav-pills {
+  float: right;
+  margin-bottom: 0 !important;
+  margin-right: 5px;
+}
+.like-item-wrap .form-select {
+  float: right;
+  display: inline;
+  width: auto;
+}
+/*최근 본 상품*/
+.recently-item-wrap {
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #caf1e9;
+  color:rgb(68, 68, 68);
+}
+.recently-item-wrap h4 {
+  display: inline;
+}
+.recently-item-wrap .form-select {
+  float: right;
+  display: inline;
+  width: auto;
+  margin-right: 10px;
+}
+.table-wrap {
+  width: 100%;
+  height: 400px;
+  overflow-x: hidden;
+  overflow: auto;
+}
+.table-wrap::-webkit-scrollbar {
+  width: 6px;
+}
+.table-wrap::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.table-wrap::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+.table-wrap::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+/*찜한 업체*/
+.table-shop {
+  width: 100%;
+  height: 778px;
+}
+.like-shop-wrap {
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #caf1e9;
+  color:rgb(68, 68, 68);
+}
+.like-shop h4 {
+  display: inline;
+}
+.like-shop .form-select {
+  float: right;
+  display: inline;
+  width: auto;
+  margin-right: 10px;
+}
+.table .img-shop {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: 1px solid var(--bs-teal);
+  padding: 3px;
+}
+.table p {
+  margin: 0;
+}
+.table span {
+  color: grey;
+  font-size: 12px;
+}
+.table .shop-img-th {
+  width: 10%;
+}
+/*카드형 디자인*/
+.tab-pane .card {
+  width: 16.2%;
+  min-width: 180px;
+  display: inline-block;
+}
+.card-body {
+  position: relative;
+  padding: 0 !important;
+}
+.card-body .card-text {
+  display: block;
+  margin: 0;
+}
+.card-body span {
+  color: gray;
+  font-size: 12px;
+}
+/*리스트형 디자인*/
+.table .img-thumbnail {
+  width: 80px;
+  height: 80px;
+}
+.table .table-padding {
+  padding-top: 35px;
+}
+/*하트 디자인*/
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  color: var(--bs-teal);
+  cursor: pointer;
+  font-size: 1.2em;
+  align-self: center;
+  transition: color 0.2s ease-in-out;
+  float: right;
+  line-height: 20px;
+}
+
+.label-item {
+  float: left;
+}
+.label-shop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  background-color: beige;
+  float: left;
+}
+label:hover {
+  color: grey;
+}
+input[type="checkbox"]:checked + .label-shop{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid white;
+  background-color: red;
+  color: white;
+  transition: all 0.5s;
+}
+input[type="checkbox"]:checked + label{
+  color: red;
+  transition: all 0.2s;
+}
+input[type="checkbox"]:checked + label i {
+  color: white;
+}
+
