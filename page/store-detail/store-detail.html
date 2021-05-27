@@ -3,6 +3,8 @@
 
 <head include-html="../../include/head.html">
     <!-- <link rel="stylesheet" href="./index.css"> -->
+    <link rel="stylesheet" href="./store-detail.css">
+    <link rel="stylesheet" href="./store-detail-media.css">
 </head>
 
 <body id="page-top">
@@ -10,100 +12,274 @@
     <nav include-html="../../include/nav.html">
     </nav>
     <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="../../assets/img/avataaars.svg" alt="..." />
-            <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Masthead Subheading-->
-            <p id="test-p" class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer -
-                Illustrator</p>
+    <header>
+        <div class="container-fluid d-flex align-items-center flex-column p-0">
+            <div id="map" style="width:100%;height:550px;"></div>
         </div>
     </header>
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
+
         <div class="container">
             <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Portfolio Grid Items-->
-            <div class="row justify-content-center">
-                <!-- Portfolio Item 1-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/cabin.png" alt="..." />
-                    </div>
+            <div class="page- mb-0">
+                <div class="container d-flex row justify-content-center">
+                    <!-- <div class="store-text col-lg-3  col-md-4">
+                        <p>사업자번호:112-119-117</p>
+                        <p>저희 업체는 스트릿 제품이 인기 있습니다.</p>
+                        <p>운영시간:월~금 10:00 AM ~ 11:00 PM</p>
+                        <p>주소: 경기도 의정부시 행복로 21-5</p>
+                        <p>전화번호:010-3905-0855</p>
+                    </div> -->
+                    <a href="" class=" col-lg-3  col-md-4 " style="display: flex; justify-content: center;">
+                        <div class="circle-img"></div>
+                    </a>
+                    
                 </div>
-                <!-- Portfolio Item 2-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8 offset-lg-2">
+                            <div class="portfolio-filter filters center">
+                                <ul>
+                                    <li>
+                                        <button type="button" id="btn-cloth" class="btn btn-outline-primary">
+                                            #상의
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="btn-pants" type="button" class="btn btn-outline-primary">
+                                            #하의
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="btn-shoose" type="button" class="btn btn-outline-primary">
+                                            #신발
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="btn-man" type="button" class="btn btn-outline-primary">
+                                            #남성
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button id="btn-woman" type="button" class="btn btn-outline-primary">
+                                            #여성
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/cake.png" alt="..." />
                     </div>
-                </div>
-                <!-- Portfolio Item 3-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/circus.png" alt="..." />
+                    <div class="combo-box col-lg-3  col-md-4">
+                        <form class="margin-bottom-15px">
+                            
+                            <select class="form-control" id="sel1" name="sellist1">
+                                <option value="none" selected>
+                                    정렬방식을 선택해 주세요.
+                                </option>
+                                <option value="new">최신순</option>
+                                <option value="row-price">가격이 낮은순</option>
+                                <option value="high-price">조회수가 높은순</option>
+                                <option value="like">찜이 많은순</option>
+                              </select>
+                        </form>
                     </div>
-                </div>
-                <!-- Portfolio Item 4-->
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                    <!-- Portfolio Grid Items-->
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts man">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진4.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>패션 멘투맨</div>
+                                    <div>L,XL</div>
+                                    <div class="mt-2 f price">52,000원</div>
+                                </div>
+                            </div>
                         </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/game.png" alt="..." />
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card  shirts man woman">
+                            <div class="clo" id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진1.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>무지 갈색 멘투맨</div>
+                                    <div>R,L,XL</div>
+                                    <div class="price">29,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts man woman">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진2.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>특 양면 멘투맨</div>
+                                    <div>R,L,XL</div>
+                                    <div class="price">32,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts woman">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진3.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>트렌치코트</div>
+                                    <div>R,L,XL</div>
+                                    <div class="price">2,000,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts man">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진4.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>패션 멘투맨</div>
+                                    <div>R,L,XL</div>
+                                    <div class="price">59,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card pants woman">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진5.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>청스키니</div>
+                                    <div>24~28</div>
+                                    <div class="price">22,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card pants woman">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진6.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>깔끔 와이드 슬렉스</div>
+                                    <div>21~29</div>
+                                    <div class="price">56,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card shoose woman man">
+                            <div class="clo" id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진7.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>스니커즈</div>
+                                    <div>250~290</div>
+                                    <div class="price">29,000원</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Portfolio Item 5-->
-                <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                    <div class="row justify-content-center">
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts man">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진4.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>패션 멘투맨</div>
+                                    <div>R,L,XL</div>
+                                    <div class="price">59,000원</div>
+                                </div>
+                            </div>
                         </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/safe.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 6-->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card pants woman">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진5.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>청스키니</div>
+                                    <div>24~28</div>
+                                    <div class="price">22,000원</div>
+                                </div>
+                            </div>
                         </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/submarine.png" alt="..." />
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card pants woman">
+                            <div class="clo " id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진6.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>깔끔 와이드 슬렉스</div>
+                                    <div>21~29</div>
+                                    <div class="price">56,000원</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 clo-card shoose woman man">
+                            <div class="clo" id="shirt">
+                                <div class="center">
+                                    <div class="clonths-img-box">
+                                        <img class="img" src="../../assets/img/portfolio/옷 사진7.png " />
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="contents-text">
+                                    <div>스니커즈</div>
+                                    <div>250~290</div>
+                                    <div class="price">29,000원</div>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -421,7 +597,75 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/include.js"></script>
-    <script src="http://127.0.0.1:5503/js/scripts.js"></script>
+    <script src="http://127.0.0.1:5502/js/scripts.js"></script>
+    <script src="./store-detail.js"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>
+
+    <script>
+        
+
+        var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+            mapOption = {
+                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                level: 3, // 지도의 확대 레벨
+            };
+
+        var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+        map.setZoomable(false);
+
+        // 마커를 표시할 위치입니다
+        var position = new kakao.maps.LatLng(33.450701, 126.570667);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: position,
+            clickable: true, // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+        });
+
+        // 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+        // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+        // marker.setClickable(true);
+      
+        // 마커를 지도에 표시합니다.
+        marker.setMap(map);
+
+        // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+
+
+        // 마커를 표시할 위치입니다
+        // var position = new kakao.maps.LatLng(33.450701, 126.570667);
+
+        // // 마커를 생성합니다
+        // var marker = new kakao.maps.Marker({
+        //     position: position,
+        //     clickable: true, // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+        // });
+
+        // 아래 코드는 위의 마커를 생성하는 코드에서 clickable: true 와 같이
+        // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+        // marker.setClickable(true);
+
+        // // 마커를 지도에 표시합니다.
+        // marker.setMap(map);
+
+        // // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+        // var iwContent =
+        //     '<div><div class="circle"style="width:200px; height:auto;"><img src="http://www.ibnews.co.kr/data/photos/20180521/art_15270327563567_e74aef.jpg"class="img"></div><div class="text">어쩌구저쩌구 스토어</div><div class="font-text"><ul class="center"><li>#20대</li><li>#케쥬얼</li></ul></div></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        //     iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+        // // 인포윈도우를 생성합니다
+        // var infowindow = new kakao.maps.InfoWindow({
+        //     content: iwContent,
+        //     removable: iwRemoveable,
+        // });
+
+        // // 마커에 클릭이벤트를 등록합니다
+        // kakao.maps.event.addListener(marker, "click", function () {
+        //     // 마커 위에 인포윈도우를 표시합니다
+        //     infowindow.open(map, marker);
+        // });
+    </script>
     </div>
 
 </body>
