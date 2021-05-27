@@ -2,225 +2,250 @@
 <html>
 
 <head include-html="../../include/head.html">
-    <!-- <link rel="stylesheet" href="./index.css"> -->
+    <link rel="stylesheet" href="./main.css">
 </head>
 
-<body id="page-top">
+<body id="page-top" class="mobile-toggle">
     <!-- Navigation-->
     <nav include-html="../../include/nav.html">
     </nav>
     <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="../../assets/img/avataaars.svg" alt="..." />
-            <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
+    <div class="full-screen">
+        <div class="p-0 container-fluid full-height">
+            <div class="custom-hr"></div>
+            <div class="filter-bar">
+                <div class="slidecontainer">
+                    <div id="distance-input">10km</div><input type="range" min="1" max="10" value="2" class="slider"
+                        id="myRange">
+                </div>
+                <select class="form-control" id="map-filter-select">
+                    <option>전체</option>
+                    <option>거리순</option>
+                    <option>인기순</option>
+                    <option>영업중</option>
+                </select>
+                <button type="button" id="Refresh-Btn" class="btn btn-primary"><i class="fas fa-redo"></i>새로고침</button>
+                <button type="button" id="mobile-store-list" class="btn btn-primary"><i class="fas fa-store"></i>LIST</button>
             </div>
-            <!-- Masthead Subheading-->
-            <p id="test-p" class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer -
-                Illustrator</p>
-        </div>
-    </header>
-    <!-- Portfolio Section-->
-    <section class="page-section portfolio" id="portfolio">
-        <div class="container">
-            <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Portfolio Grid Items-->
-            <div class="row justify-content-center">
-                <!-- Portfolio Item 1-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/cabin.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 2-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/cake.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 3-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/circus.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 4-->
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/game.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 5-->
-                <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/safe.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 6-->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/submarine.png" alt="..." />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Section-->
-    <section class="page-section bg-primary text-white mb-0" id="about">
-        <div class="container">
-            <!-- About Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- About Section Content-->
-            <div class="row">
-                <div class="col-lg-4 ms-auto">
-                    <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download
-                        includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS
-                        stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4 me-auto">
-                    <p class="lead">You can create your own custom avatar for the masthead, change the icon in the
-                        dividers, and add your email address to the contact form to make it fully functional!</p>
-                </div>
-            </div>
-            <!-- About Section Button-->
-            <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                    <i class="fas fa-download me-2"></i>
-                    Free Download!
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section-->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Contact Section Form-->
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7">
-                    <form>
-                        <div class="form-floating">
-                            <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." />
-                            <label for="inputName">Name</label>
-                        </div>
-                        <div class="form-floating">
-                            <input class="form-control" id="inputEmail" type="email"
-                                placeholder="Enter your email..." />
-                            <label for="inputEmail">Email address</label>
-                        </div>
-                        <div class="form-floating">
-                            <input class="form-control" id="inputPhone" type="tel"
-                                placeholder="Enter your phone number..." />
-                            <label for="inputPhone">Phone Number</label>
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" id="inputMessage" placeholder="Enter your message here..."
-                                style="height: 12rem"></textarea>
-                            <label for="inputMessage">Message</label>
-                        </div>
-                        <br />
-                        <button class="btn btn-primary btn-xl" type="submit">Send</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer-->
-    <footer include-html="../../include/footer.html">
-    </footer>
-    <!-- Copyright Section-->
-    <div class="copyright py-4 text-center text-white">
-        <div class="container"><small>Copyright &copy; Your Website 2021</small></div>
-    </div>
-    <!-- Portfolio Modals-->
-    <!-- Portfolio Modal 1-->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Log Cabin</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
+            <div class="flex-container full-height">
+                <div class="p-0 map-store-list" id="storeList">
+                    <div id="store1" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
                                 </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="../../assets/img/portfolio/cabin.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like1" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area" style="background-image: url('../../assets/img/portfolio/game.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="store2" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like2" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area" style="background-image: url('../../assets/img/portfolio/cake.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="store3" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area"
+                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="store4" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area"
+                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="store5" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area"
+                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="store6" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area"
+                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="store7" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area"
+                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="store8" class="store-card-container">
+                        <div class="store-info-text">
+                            <div>
+                                <a href="#" class="store-name">패션풀</a>
+                                <div class="store-detail-info">
+                                    <div class="s-d-tag">#오피스룩</div>
+                                    <div class="s-d-tag">#30대</div>
+                                </div>
+                            </div>
+                            <div class="detail-bottom">
+                                <div class="like-btn-container">
+                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
+                                    <div class="bottom-detail">
+                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
+                                        <div class="store-state">현재 영업중</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="store-info-img">
+                            <div class="img-area"
+                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="p-0 map-api-container">
+                    <div id="store-map" style="width: 100%; min-height: 800px;"></div>
+                    <!-- 스토어클릭시 모달형식 -->
+                    <div class="store-detail-dialog">
+                        <div class="dialog-paper card">
+                            <div class="card-header" id="dialog-header">X</div>
+                            <div class="card-body"id="dialog-body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam alias sunt eligendi voluptas at saepe recusandae maiores repellendus illo voluptate fuga, suscipit mollitia nam, facere beatae harum eveniet a reiciendis!
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam corporis ut corrupti autem id iure rem beatae quibusdam natus dicta, officiis, asperiores ex explicabo saepe sed eaque odit cupiditate voluptatem? Incidunt ipsum volupt
                             </div>
                         </div>
                     </div>
@@ -228,201 +253,17 @@
             </div>
         </div>
     </div>
-    <!-- Portfolio Modal 2-->
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty Cake</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="../../assets/img/portfolio/cake.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 3-->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus Tent</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="../../assets/img/portfolio/circus.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 4-->
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="../../assets/img/portfolio/game.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 5-->
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="../../assets/img/portfolio/safe.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Portfolio Modal 6-->
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6"
-        aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal"
-                        aria-label="Close"></button></div>
-                <div class="modal-body text-center pb-5">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <!-- Portfolio Modal - Title-->
-                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-                                <!-- Icon Divider-->
-                                <div class="divider-custom">
-                                    <div class="divider-custom-line"></div>
-                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                    <div class="divider-custom-line"></div>
-                                </div>
-                                <!-- Portfolio Modal - Image-->
-                                <img class="img-fluid rounded mb-5" src="../../assets/img/portfolio/submarine.png"
-                                    alt="..." />
-                                <!-- Portfolio Modal - Text-->
-                                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque
-                                    assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam
-                                    velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
-                                </p>
-                                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
-                                    <i class="fas fa-times fa-fw"></i>
-                                    Close Window
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/include.js"></script>
-    <script src="http://127.0.0.1:5503/js/scripts.js"></script>
-    </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://kit.fontawesome.com/b08bd7bb39.js" crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../../js/include.js"></script>
+        <script src="http://127.0.0.1:5502/js/scripts.js"></script>
+
+        <script src="./main.js"></script>
+
 
 </body>
 
