@@ -1,18 +1,6 @@
 .clo-hidden {
   display: none;
 }
-a {
-  color: white;
-  text-decoration: none;
-}
-li {
-  float: left;
-  text-decoration: none;
-  margin: 15px;
-}
-ul {
-  list-style: none;
-}
 
 .store-d-topbar {
   display: flex;
@@ -24,6 +12,10 @@ ul {
 .store-text {
   font-size: 0.8rem;
   color: gray;
+}
+.btn-tags{
+  list-style: none;
+  margin: 30px;
 }
 .circle-img {
   z-index: 10;
