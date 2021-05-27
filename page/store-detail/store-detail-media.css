@@ -5,7 +5,7 @@
     ul{
         margin-bottom: 0px;
         margin-top: 15px;
-        flex-direction: row;
+        flex-direction: row; 
         width: 100%;
     }
     .portfolio-filter{
