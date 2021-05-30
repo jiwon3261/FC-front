@@ -1,0 +1,191 @@
+:root {
+  --full-padding: 103.3px;
+  --card-size: 150px;
+}
+
+.full-top-padding {
+  padding-top: var(--full-padding);
+}
+.full-container {
+  min-height: 90.8vh;
+}
+/* .item-detial-con {
+  outline: 1px solid var(--bs-primary);
+} */
+.item-detial-top {
+  border-bottom: 1px solid rgb(211, 211, 211);
+  /* background-color: red; */
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 70px;
+}
+.item-detial-top button {
+  padding: 5px 20px;
+  border-radius: 100px;
+}
+.item-img-area {
+  display: flex;
+}
+.item-info-area {
+  display: flex;
+  flex-direction: column;
+}
+.item-info {
+  display: flex;
+  justify-content: space-between;
+}
+.item-name {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.item-price {
+  font-size: 1.1rem;
+  color: var(--bs-primary);
+}
+.item-size {
+  display: flex;
+}
+.item-size .size-badge {
+  pointer-events: none;
+  margin: 20px 4px 0px 4px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 5px 5px;
+  border: 2px solid var(--bs-primary);
+}
+.info-shop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.info-shop > div {
+  cursor: pointer;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+}
+.item-info > button,
+.info-shop > button {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  font-size: 30px;
+}
+/* main-img */
+.item-img-area div:nth-child(1) {
+  position: relative;
+  overflow: hidden;
+  flex: 80% 1 1;
+}
+.item-img-area div:nth-child(1)::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.inner-img {
+  position: absolute;
+  width: 100%;
+}
+/* sub-img */
+.item-img-area div:nth-child(2) {
+  flex: 20% 1 1;
+}
+.item-img-area div:nth-child(2) img {
+  width: calc(100%);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.item-img-area div:nth-child(2) img:hover {
+  border-radius: 6px;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.37);
+  transform: scale(1.1);
+  z-index: 100;
+}
+.info-tag {
+  margin-bottom: 10px;
+  display: flex;
+}
+.shop-new-itmes {
+  display: flex;
+  flex-wrap: wrap;
+}
+.new-item {
+  cursor: pointer;
+  position: relative;
+  flex-basis: 30%;
+  flex-shrink: 0;
+  margin: 3px 3px;
+}
+.new-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgb(223, 223, 223);
+}
+.new-item::after {
+  display: block;
+  background-color: red;
+  margin-bottom: 100%;
+  content: "";
+}
+.shop-new-container {
+  display: flex;
+  justify-content: space-between;
+}
+.custom-hr {
+  margin: 20px 0px;
+  border-top: 1px solid rgb(211, 211, 211);
+}
+.avatar-img {
+  cursor: pointer;
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+  background-image: url("../../assets/img/portfolio/옷\ 사진2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+.custom-tag {
+  cursor: default;
+  margin-right: 4px;
+  font-size: 13px;
+  border-radius: 300px;
+  color: white;
+  background-color: var(--bs-primary);
+  padding: 5px 15px;
+}
+@media (max-width: 991px) {
+  :root {
+    --full-padding: 72px;
+  }
+  .full-top-padding {
+    padding-top: var(--full-padding);
+  }
+  .item-img-area {
+    margin-top: 50px !important;
+  }
+  .item-detial-top {
+    position: fixed;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+  }
+}
