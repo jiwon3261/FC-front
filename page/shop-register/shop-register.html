@@ -2,7 +2,7 @@
 <html>
 
 <head include-html="../../include/head.html">
-    <link rel="stylesheet" href="./shop-resister.css">
+    <link rel="stylesheet" href="./shop-register.css">
     <!-- <link rel="stylesheet" href="./index.css"> -->
 </head>
 
@@ -32,96 +32,61 @@
                         <label class="file-label btn btn-primary btn-xl" for="image">대표사진 업로드</label>
                     </div>
                 <div class="col-lg-8">
-                    <form>
-                        <div class="form-floating mb-2">
-                            <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." />
-                            <label for="inputName">상호명</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input class="form-control" id="inputAdress1" type="text" placeholder="Enter your Price..." disabled/>
-                            <label for="inputAdress1">매장위치</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                              <input class="form-control" id="inputAdress2"  placeholder="Enter your Price..." type="text"/>
-                            <label for="inputAdress2">상세주소</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">주소지 입력</button>
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h5 class="modal-title" id="exampleModalLabel">주소지 입력</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text">지번/도로명</span>
-                                            <input type="text" class="form-control" placeholder="ex) 서부로 545" aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-                                          </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                                      <button type="button" class="btn btn-primary">입력완료!</button>
-                                    </div>
-                                  </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." />
+                        <label for="inputName">상호명</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control" id="inputAdress1" type="text" placeholder="Enter your Price..." disabled/>
+                        <label for="inputAdress1">매장위치</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                            <input class="form-control" id="inputAdress2"  placeholder="Enter your Price..." type="text"/>
+                        <label for="inputAdress2">상세주소</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">주소지 입력</button>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">주소지 입력</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                              </div>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input class="form-control" id="inputPhone" type="text" placeholder="ex) 010-9025-5155" />
-                            <label for="inputPhone">매장번호</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <input class="form-control" id="inputPhone" type="text" placeholder="ex) 010-9025-5155" />
-                            <label for="inputPhone">영업시간</label>
-                        </div>
-                        <div class="form-floating mb-2">
-                            <div class="label-wrap mb-2">
-                                <label for="inputTag"># 내 매장 태그는 최대 3개 선택할 수 있습니다.</label>
-                                <div id="tagAppend"></div>
+                                <div class="modal-body">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text">지번/도로명</span>
+                                        <input type="text" class="form-control" placeholder="ex) 서부로 545" aria-describedby="button-addon2">
+                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                                    <button type="button" class="btn btn-primary">입력완료!</button>
+                                </div>
+                                </div>
                             </div>
-                            <div class="tag-div form-control" id="inputTag" placeholder="Enter your Tag here...">
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary1</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary2</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary3</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary4</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
                             </div>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control" id="inputPhone" type="text" placeholder="ex) 010-9025-5155" />
+                        <label for="inputPhone">매장번호</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control" id="inputPhone" type="text" placeholder="ex) 010-9025-5155" />
+                        <label for="inputPhone">영업시간</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <div class="label-wrap mb-2">
+                            <label for="inputTag"># 내 매장 태그는 최대 3개 선택할 수 있습니다.</label>
+                            <div id="tagAppend"></div>
                         </div>
-                        <br />
-                        <button class="btn btn-primary btn-xl" type="submit">등록하기</button>
-                        <button class="btn btn-default btn-xl" type="submit">이전으로</button>
-                    </form>
+                        <div class="tag-div form-control" id="inputTag" placeholder="Enter your Tag here...">
+                        </div>
+                    </div>
+                    <br />
+                    <button id="registerStoreBtn" class="btn btn-primary btn-xl" type="button">등록하기</button>
+                    <button class="btn btn-default btn-xl" type="button">이전으로</button>
                 </div>
                 </div>
             </div>
@@ -345,8 +310,10 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Bootstrap core JS-->
-    <script src="./shop-resister.js"></script>
+    <script src="./shopRegisterApi.js"></script>
+    <script src="./shop-register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/include.js"></script>
     <script src="http://127.0.0.1:5503/js/scripts.js"></script>

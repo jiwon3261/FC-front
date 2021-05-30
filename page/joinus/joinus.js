@@ -1,13 +1,39 @@
-function join() {
-    var inputPassword = document.getElementById('inputPassword').value;
-    var inputPassword1 = document.getElementById('inputPassword1').value;
-    if( inputPassword != inputPassword1 ) {
-      alert("비밀번호가 일치하지 않습니다");
-      return false;
-    }
-    // } else{
-    //   alert("비밀번호가 일치합니다");
-    //   return true;
-    // }
+const registerMemberBtn = document.getElementById("registerMemberBtn");
 
+registerMemberBtn.addEventListener('click',()=>{
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const passwordChk = document.getElementById("passwordChk").value.trim();
+
+  if(InputValidator.isEmpty(email)){
+    alert('1');
+    return;
   }
+  
+  if(InputValidator.isEmpty(password)){
+    alert('2');
+    return;
+  }
+
+  if(InputValidator.isEmpty(passwordChk)){
+    alert('3');
+    return;
+  }
+  
+  if(!InputValidator.equal(password, passwordChk)){
+    alert('4');
+    return;
+  }
+
+  axios.post('http://localhost:8081/api/v1/member',{
+    email : email,
+    password : password
+  },)
+    .then(function(response) {
+      alert('회원가입 완료');
+    })
+    .catch(function(error) {
+      alert(error.response['data']['msg']);
+    });
+});
+
