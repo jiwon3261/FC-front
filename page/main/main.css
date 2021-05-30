@@ -2,17 +2,7 @@
   --full-padding: 103.3px;
   --card-size: 150px;
 }
-@keyframes dialog-ani {
-  0% {
-    transform: translateX(0px);
-  }
-  50% {
-    transform: translateX(-400px);
-  }
-  100% {
-    transform: translateX(0px);
-  }
-}
+
 body {
   height: 100%;
 }
@@ -45,7 +35,6 @@ body {
   padding-top: var(--full-padding);
   width: 100%;
   height: 100%;
-  /* background-color: blanchedalmond; */
 }
 .full-height {
   overflow: hidden;
@@ -54,16 +43,48 @@ body {
 
 .flex-container {
   display: flex;
-  /* flex-wrap: ; */
+}
+#dialog-body {
+  display: flex;
+  flex-direction: column;
+}
+#dialog-body > i {
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+.store-opening-day {
+  display: flex;
+  color: var(--bs-primary);
+}
+.store-opening-day div {
+  margin-right: 5px;
+}
+.store-opening-day .store-off {
+  color: rgb(219, 10, 10);
 }
 
-/* .row div {
-  border: 1px solid black;
-} */
+.dialog-contents .store-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.dialog-contents .store-name a {
+  cursor: pointer;
+}
+.dialog-contents .store-name img {
+  cursor: pointer;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
 .custom-hr {
   border-top: 1px solid rgb(201, 201, 201);
 }
 .map-store-list {
+  padding-bottom: 300px !important;
   display: flex;
   flex-direction: column;
   flex-basis: 35%;
@@ -76,7 +97,6 @@ body {
 }
 
 .map-api-container {
-  /* flex-basis: 70%; */
   width: 100%;
   position: relative;
 }
@@ -84,15 +104,18 @@ body {
   position: absolute;
   overflow-y: auto;
   height: 100%;
-  width: 400px;
-  animation: dialog-ani 5s infinite;
-  /* outline: 2px solid gray; */
-  /* background-color: rgb(255, 255, 255); */
+  width: 500px;
+  transform: translateX(-500px);
   padding: 20px;
+  transition: transform 0.5s;
   top: 0;
   left: 0;
   z-index: 300;
 }
+.store-detail-dialog.on {
+  transform: translateX(0px);
+}
+
 .dialog-paper {
   min-height: 400px;
   background-color: rgb(255, 255, 255);
@@ -140,7 +163,11 @@ body {
   padding-left: 15px;
   padding-top: 3px;
   flex-basis: 70%;
-  /* background-color: rgb(253, 247, 247); */
+}
+.store-name .store-detail-info {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
 }
 .like-btn-container {
   display: flex;
@@ -152,14 +179,10 @@ body {
 .bottom-detail {
   display: flex;
   width: 100%;
-  /* background-color: red; */
   justify-content: space-between;
   align-items: flex-end;
 }
 .like-btn {
-  /* position: relative;
-    top: -10px;
-    right: -3px; */
   min-height: 40px;
   min-width: 40px;
   width: 40px;
@@ -180,17 +203,14 @@ body {
   pointer-events: none;
 }
 .store-info-img {
-  /* flex-basis: 130px; */
   flex-basis: calc(var(--card-size) - 20px);
 }
 .store-detail-info {
   display: flex;
 }
 .img-area {
-  /* position: relative; */
   width: 100%;
   padding-bottom: 100%;
-  /* height: 100px; */
   border-radius: 10px;
   background-position: center;
   background-size: cover;
@@ -235,6 +255,9 @@ body {
 
 .slider:hover {
   opacity: 1;
+}
+.dialog-store-name-tag {
+  width: 100%;
 }
 
 .slider::-webkit-slider-thumb {
@@ -282,6 +305,8 @@ body {
     height: 600px;
   }
   .map-store-list {
+    padding-bottom: 0px !important;
+
     box-shadow: 0px 3px 8px 3px rgba(0, 0, 0, 0.171);
     flex-direction: row;
     flex-wrap: wrap;
@@ -312,6 +337,11 @@ body {
     padding-left: 0px;
     flex-basis: 100%;
   }
+  .store-detail-dialog {
+    z-index: 1050;
+    width: 100%;
+    transform: translateY(100%);
+  }
 }
 @media (max-width: 893px) {
   :root {
@@ -336,13 +366,8 @@ body {
   }
   /* mobile-toggle 일때 보이게*/
   .map-store-list {
-    /* flex-basis: 35%;
-    position: relative;
-    z-index: 500;
-    min-width: 450px;
-    background-color: white;
-    height: 100%;
-    overflow-y: auto; */
+    padding-bottom: 300px !important;
+
     overflow-y: scroll;
     transform: translateX(-100%);
     position: fixed;
@@ -396,12 +421,10 @@ body {
   }
 
   .store-detail-dialog {
-    display: none;
-    /* position: absolute;
-    overflow-y: auto;
-    height: 100%;
-    width: 400px;
-    animation: dialog-ani 5s infinite; */
+    z-index: 1050;
+    width: 100%;
+    transform: translateY(100%);
+    padding: 0;
   }
 }
 @media (max-width: 477px) {
@@ -421,6 +444,5 @@ body {
   .store-info-img {
     width: 80px;
     height: 80px;
+  }
 }
-}
-
