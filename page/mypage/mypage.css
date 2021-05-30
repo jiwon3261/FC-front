@@ -5,19 +5,23 @@
   order: 1;
 }
 /*콘텐츠영역*/
-.page-secition{
+.page-secition {
   padding: 10rem 0;
 }
 .card {
   padding: 10px;
 }
-/*테이블*/ 
+/*테이블*/
 .table > :not(:last-child) > :last-child > * {
   border-bottom-color: #dee2e6 !important;
 }
 .table td:last-child {
   width: 10%;
   padding: 35px 8px 8px 8px;
+}
+.tag-padding {
+  line-height: 16px !important;
+  display: block;
 }
 /*탭 디자인*/
 .tab-content {
@@ -62,7 +66,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color:rgb(68, 68, 68);
+  color: rgb(68, 68, 68);
 }
 .like-item-wrap > div {
   display: flex;
@@ -88,7 +92,7 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #caf1e9;
-  color:rgb(68, 68, 68);
+  color: rgb(68, 68, 68);
 }
 .recently-item-wrap h4 {
   display: inline;
@@ -129,7 +133,7 @@
   padding: 10px;
   border-radius: 5px;
   background-color: #caf1e9;
-  color:rgb(68, 68, 68);
+  color: rgb(68, 68, 68);
 }
 .like-shop h4 {
   display: inline;
@@ -214,7 +218,7 @@ label {
 label:hover {
   color: grey;
 }
-input[type="checkbox"]:checked + .label-shop{
+input[type="checkbox"]:checked + .label-shop {
   width: 30px;
   height: 30px;
   border-radius: 100%;
@@ -223,11 +227,10 @@ input[type="checkbox"]:checked + .label-shop{
   color: white;
   transition: all 0.5s;
 }
-input[type="checkbox"]:checked + label{
+input[type="checkbox"]:checked + label {
   color: red;
   transition: all 0.2s;
 }
 input[type="checkbox"]:checked + label i {
   color: white;
 }
-
