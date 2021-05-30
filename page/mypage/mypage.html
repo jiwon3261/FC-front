@@ -3,6 +3,7 @@
 
 <head include-html="../../include/head.html">
     <!-- <link rel="stylesheet" href="./index.css"> -->
+    <link rel="stylesheet" href="./mypage.css">
 </head>
 
 <body id="page-top">
@@ -10,174 +11,491 @@
     <nav include-html="../../include/nav.html">
     </nav>
     <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center">
-        <div class="container d-flex align-items-center flex-column">
-            <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5" src="../../assets/img/avataaars.svg" alt="..." />
-            <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Masthead Subheading-->
-            <p id="test-p" class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer -
-                Illustrator</p>
-        </div>
-    </header>
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
-        <div class="container">
-            <!-- Portfolio Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
+        <div class="container-fluid">
             <!-- Portfolio Grid Items-->
             <div class="row justify-content-center">
                 <!-- Portfolio Item 1-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                <div class="col-lg-8 mb-5">
+                    <div class="like-item card mb-5">
+                        <div class="like-item-wrap">
+                            <h4>찜한 상품</h4>
+                        <!--tabs-->
+                        <div>
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="true"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grid" viewBox="0 0 16 16">
+                                        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
+                                      </svg></button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-list-tab" data-bs-toggle="pill" data-bs-target="#pills-list" type="button" role="tab" aria-controls="pills-list" aria-selected="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16">
+                                        <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+                                        <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z"/>
+                                      </svg></button>
+                                </li>
+                            </ul>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>--정렬--</option>
+                                <option value="1">최신순</option>
+                                <option value="2">가격 높은 순</option>
+                                <option value="3">가격 낮은 순</option>
+                            </select>
                         </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/cabin.png" alt="..." />
+                        </div>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab">
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample1.jpg" class="card-img-top" alt="샘플1">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart" type="checkbox" />
+                                            <label for="heart">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample2.jpg" class="card-img-top" alt="샘플2">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart2" type="checkbox" />
+                                            <label for="heart2">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample3.jpg" class="card-img-top" alt="샘플3">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart3" type="checkbox" />
+                                            <label for="heart3">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample4.jpg" class="card-img-top" alt="샘플4">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart4" type="checkbox" />
+                                            <label for="heart4">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample5.jpg" class="card-img-top" alt="샘플1">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart5" type="checkbox" />
+                                            <label for="heart5">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample6.jpg" class="card-img-top" alt="샘플1">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart6" type="checkbox" />
+                                            <label for="heart6">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample7.jpg" class="card-img-top" alt="샘플1">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart7" type="checkbox" />
+                                            <label for="heart7">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <img src="/page/mypage/images/sample8.jpg" class="card-img-top" alt="샘플1">
+                                    <div class="card-body">
+                                        <a href="#" class="card-text">와이드핏 팬츠 
+                                            <input id="heart8" type="checkbox" />
+                                            <label for="heart8">♥</label></a>
+                                        <a href="#" class="card-text">올리비아하슬러</a>
+                                        <p class="card-text">119,700 <strong>won</strong></p>
+                                        <span>#페미닌 </span><span>#롱스커트</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab">
+                                <table class="table">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">이미지</th>
+                                        <th scope="col">상품명</th>
+                                        <th scope="col">상호명</th>
+                                        <th scope="col">가격</th>
+                                        <th scope="col">태그</th>
+                                        <th scope="col">찜</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td><img src="/page/mypage/images/sample1.jpg" class="img-thumbnail" alt="샘플1"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart9" type="checkbox" />
+                                            <label for="heart9" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">2</th>
+                                        <td><img src="/page/mypage/images/sample2.jpg" class="img-thumbnail" alt="샘플2"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart10" type="checkbox" />
+                                            <label for="heart10" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">3</th>
+                                        <td><img src="/page/mypage/images/sample3.jpg" class="img-thumbnail" alt="샘플4"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart11" type="checkbox" />
+                                            <label for="heart11" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">4</th>
+                                        <td><img src="/page/mypage/images/sample4.jpg" class="img-thumbnail" alt="샘플4"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart12" type="checkbox" />
+                                            <label for="heart12" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">5</th>
+                                        <td><img src="/page/mypage/images/sample5.jpg" class="img-thumbnail" alt="샘플5"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart13" type="checkbox" />
+                                            <label for="heart13" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">6</th>
+                                        <td><img src="/page/mypage/images/sample6.jpg" class="img-thumbnail" alt="샘플6"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart14" type="checkbox" />
+                                            <label for="heart14" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">7</th>
+                                        <td><img src="/page/mypage/images/sample7.jpg" class="img-thumbnail" alt="샘플7"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                        <td class="table-padding">
+                                            <input id="heart15" type="checkbox" />
+                                            <label for="heart15" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">8</th>
+                                        <td><img src="/page/mypage/images/sample8.jpg" class="img-thumbnail" alt="샘플8"></td>
+                                        <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                        <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                        <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                        <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>                                
+                                        <td class="table-padding">
+                                            <input id="heart16" type="checkbox" />
+                                            <label for="heart16" class="label-item">♥</label>
+                                        </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        <!--tabs-->
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Item 3-->
+                    <div class="recently-item card">
+                        <div class="recently-item-wrap mb-3"><h4>최근 본 상품</h4>                        
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>--정렬--</option>
+                            <option value="1">최신순</option>
+                            <option value="2">가격 높은 순</option>
+                            <option value="3">가격 낮은 순</option>
+                        </select>
+                    </div>
+                        <div class="table-wrap">
+                            <table class="table">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">이미지</th>
+                                    <th scope="col">상품명</th>
+                                    <th scope="col">상호명</th>
+                                    <th scope="col">가격</th>
+                                    <th scope="col">태그</th>
+                                    <th scope="col">찜</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th scope="row">1</th>
+                                    <td><img src="/page/mypage/images/sample1.jpg" class="img-thumbnail" alt="샘플1"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart9" type="checkbox" />
+                                        <label for="heart9" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">2</th>
+                                    <td><img src="/page/mypage/images/sample2.jpg" class="img-thumbnail" alt="샘플2"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart10" type="checkbox" />
+                                        <label for="heart10" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">3</th>
+                                    <td><img src="/page/mypage/images/sample3.jpg" class="img-thumbnail" alt="샘플4"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart11" type="checkbox" />
+                                        <label for="heart11" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">4</th>
+                                    <td><img src="/page/mypage/images/sample4.jpg" class="img-thumbnail" alt="샘플4"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart12" type="checkbox" />
+                                        <label for="heart12" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">5</th>
+                                    <td><img src="/page/mypage/images/sample5.jpg" class="img-thumbnail" alt="샘플5"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart13" type="checkbox" />
+                                        <label for="heart13" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">6</th>
+                                    <td><img src="/page/mypage/images/sample6.jpg" class="img-thumbnail" alt="샘플6"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart14" type="checkbox" />
+                                        <label for="heart14" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">7</th>
+                                    <td><img src="/page/mypage/images/sample7.jpg" class="img-thumbnail" alt="샘플7"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>
+                                    <td class="table-padding">
+                                        <input id="heart15" type="checkbox" />
+                                        <label for="heart15" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row">8</th>
+                                    <td><img src="/page/mypage/images/sample8.jpg" class="img-thumbnail" alt="샘플8"></td>
+                                    <td class="table-padding"><a href="#">와이드핏 팬츠 </a></td>
+                                    <td class="table-padding"><a href="#">올리비아하슬러</a></td>
+                                    <td class="table-padding"><p>119,700 <strong>won</strong></p></td>
+                                    <td class="table-padding"><span class="tag-padding">#페미닌 </span><span class="tag-padding">#롱스커트</span></td>                                
+                                    <td class="table-padding">
+                                        <input id="heart16" type="checkbox" />
+                                        <label for="heart16" class="label-item">♥</label>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
                     </div>
                 </div>
                 <!-- Portfolio Item 2-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
+                <div class="col-lg-4 mb-5">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <div class="user-email">유저 ID : <span>rnskqkd@naver.com</span></div>
+                            <div class="user-adress mb-1">현 주소 : <span>강남구 역삼동 657-30</span></div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">주소지 변경할래요!</button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">주소지 변경</h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text">지번/도로명</span>
+                                                <input type="text" class="form-control" placeholder="ex) 서부로 545" aria-describedby="button-addon2">
+                                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
+                                              </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                                          <button type="button" class="btn btn-primary">변경완료!</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
                         </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/cake.png" alt="..." />
+                      </div>
+
+                    <!-- Portfolio Item 4-->
+                    <div class="like-shop card">
+                        <div class="like-shop-wrap mb-3"><h4>찜한 업체</h4><select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                            <option selected>--정렬--</option>
+                            <option value="1">거리 순</option>
+                            <option value="2">인기 순</option>
+                        </select></div>
+                        <div class="table-shop table-wrap">
+                            <table class="table">
+                                <tbody>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample9.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart25" type="checkbox" />
+                                        <label for="heart25" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample10.png" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart26" type="checkbox" />
+                                        <label for="heart26" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample11.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart27" type="checkbox" />
+                                        <label for="heart27" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample12.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart28" type="checkbox" />
+                                        <label for="heart28" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample13.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart29" type="checkbox" />
+                                        <label for="heart29" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample14.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart30" type="checkbox" />
+                                        <label for="heart30" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample15.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="hear31" type="checkbox" />
+                                        <label for="heart31" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample16.jpg" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart32" type="checkbox" />
+                                        <label for="heart32" class="label-shop">♥</label>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <th scope="row" class="shop-img-th"><a href="#"><img src="/page/mypage/images/sample10.png" class="img-shop" alt="샘플1"></a></th>
+                                    <td class="table-padding-top"><p><a href="#">Awesome9</a></p><span>의정부시 의정부동</span><p><span>#의정부역인근 </span><span>#20대 </span><span>#키작녀</span></p></td>
+                                    <td class="table-padding-top">
+                                        <input id="heart33" type="checkbox" />
+                                        <label for="heart33" class="label-shop"><i class="fas fa-heart"></i></label>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
                     </div>
-                </div>
-                <!-- Portfolio Item 3-->
-                <div class="col-md-6 col-lg-4 mb-5">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/circus.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 4-->
-                <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/game.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 5-->
-                <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/safe.png" alt="..." />
-                    </div>
-                </div>
-                <!-- Portfolio Item 6-->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                        <div
-                            class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white"><i
-                                    class="fas fa-plus fa-3x"></i></div>
-                        </div>
-                        <img class="img-fluid" src="../../assets/img/portfolio/submarine.png" alt="..." />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- About Section-->
-    <section class="page-section bg-primary text-white mb-0" id="about">
-        <div class="container">
-            <!-- About Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- About Section Content-->
-            <div class="row">
-                <div class="col-lg-4 ms-auto">
-                    <p class="lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download
-                        includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS
-                        stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4 me-auto">
-                    <p class="lead">You can create your own custom avatar for the masthead, change the icon in the
-                        dividers, and add your email address to the contact form to make it fully functional!</p>
-                </div>
-            </div>
-            <!-- About Section Button-->
-            <div class="text-center mt-4">
-                <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/theme/freelancer/">
-                    <i class="fas fa-download me-2"></i>
-                    Free Download!
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section-->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <!-- Contact Section Form-->
-            <div class="row justify-content-center">
-                <div class="col-lg-8 col-xl-7">
-                    <form>
-                        <div class="form-floating">
-                            <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." />
-                            <label for="inputName">Name</label>
-                        </div>
-                        <div class="form-floating">
-                            <input class="form-control" id="inputEmail" type="email"
-                                placeholder="Enter your email..." />
-                            <label for="inputEmail">Email address</label>
-                        </div>
-                        <div class="form-floating">
-                            <input class="form-control" id="inputPhone" type="tel"
-                                placeholder="Enter your phone number..." />
-                            <label for="inputPhone">Phone Number</label>
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" id="inputMessage" placeholder="Enter your message here..."
-                                style="height: 12rem"></textarea>
-                            <label for="inputMessage">Message</label>
-                        </div>
-                        <br />
-                        <button class="btn btn-primary btn-xl" type="submit">Send</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -424,6 +742,8 @@
     <script src="http://127.0.0.1:5502/js/scripts.js"></script>
     </div>
 
+    <!-- js -->
+    <script src="https://kit.fontawesome.com/b08bd7bb39.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

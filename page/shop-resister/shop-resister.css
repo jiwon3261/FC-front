@@ -1,0 +1,72 @@
+.form-floating .form-select {
+  font-size: 24px;
+  color: #6c757d;
+  padding-top: 24px !important;
+}
+
+.form-floating .tag-div {
+  padding: 10px !important ;
+  height: 12rem !important;
+  overflow-x: hidden;
+  overflow: auto;
+}
+.form-floating .tag-div::-webkit-scrollbar {
+  width: 6px;
+}
+.form-floating .tag-div::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.form-floating .tag-div::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: gray;
+}
+.form-floating .tag-div::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+.form-floating .tag-div {
+  width: 100%;
+  margin: auto;
+}
+.form-floating .tag-div .bi {
+  width: 1em;
+  height: 1em;
+}
+.form-floating .tag-div button {
+  margin-bottom: 5px !important;
+}
+.form-floating .tag-div .label-wrap {
+  position: relative;
+}
+
+#tagAppend {
+  display: inline;
+  padding: 0 5px;
+}
+
+#tagAppend .btn {
+  margin-right: 5px;
+}
+
+input[type="file"] {
+  display: inline-block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  z-index: 1;
+  opacity: 0;
+  background: var(--bs-teal) !important;
+}
+
+.file-label {
+  width: 100%;
+}
+
+#image_container img {
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  display: flex;
+  border-radius: 100%;
+  border: 2px solid var(--bs-teal);
+}
