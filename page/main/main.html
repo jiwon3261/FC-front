@@ -24,7 +24,7 @@
                     <option>인기순</option>
                     <option>영업중</option>
                 </select>
-                <button type="button" id="Refresh-Btn" class="btn btn-primary"><i class="fas fa-redo"></i>새로고침</button>
+                <button type="button" id="addressChangeBtn" class="btn btn-primary"><i class="fas fa-crosshairs"></i>주소지변경</button>
                 <button type="button" id="mobile-store-list" class="btn btn-primary"><i
                         class="fas fa-store"></i>LIST</button>
             </div>
@@ -177,8 +177,11 @@
             </div>
         </div>
     </div>
-
+    <div class="address-bar" id="addressBarBottom">
+        경기도 의정부시 동일로 400
+    </div>
     <!-- Bootstrap core JS-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/b08bd7bb39.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>

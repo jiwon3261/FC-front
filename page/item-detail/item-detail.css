@@ -180,6 +180,9 @@
   .item-img-area {
     margin-top: 50px !important;
   }
+  .nav-shadow-on nav{
+    box-shadow: none !important;
+  }
   .item-detial-top {
     position: fixed;
     left: 0;
