@@ -1,7 +1,26 @@
+input{
+  display: none;
+}
+input[type="checkbox"]:checked + label {
+  color: red;
+  transition: all 0.2s;
+}
+.heart{
+  color: var(--bs-teal);
+    cursor: pointer;
+    font-size: 1.2em;
+    align-self: center;
+    transition: color 0.2s ease-in-out;
+    float: right;
+    line-height: 20px;
+}
+.price{
+  display: flex;
+  justify-content: space-between;
+}
 .clo-hidden {
   display: none;
 }
-
 .store-d-topbar {
   display: flex;
   justify-content: center;
