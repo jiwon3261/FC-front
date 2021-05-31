@@ -1,83 +1,26 @@
-.:root {
-  --red: rgb(209, 3, 3);
-  --white: #fff;
-  --black: #000;
+input{
+  display: none;
 }
-
-
-
-
-.btn-like {
-  font-size: 2rem;
-  border-radius: 10px;
-}
-
-button {
-  background-color: white;
-}
-
-
-/*-- Button Icon -- */
-.btn-icon {
-  display: inline-block;
-  width: 5px;
-  position: absolute;
-  left: 1.5rem;
-  transform: rotate(0deg)
-}
-
-.btn-icon {
-  color: var(--red);
-}
-
-.btn-icon {
-  color: var(--red);
-}
-
-.liked .btn--icon-default {
-  transform: rotate(-90deg)
-}
-
-.btn:not(.liked).btn--icon-liked {
-  transform: rotate(-90deg)
-}
-
-.liked .btn--icon-default,
-.btn--icon-liked {
-  opacity: 0;
+input[type="checkbox"]:checked + label {
   color: red;
-  position: absolute;
+  transition: all 0.2s;
 }
-
-.btn--icon-default,
-.liked .btn--icon-liked {
-  opacity: 1;
-  left: 1.5rem;
+.heart{
+  color: var(--bs-teal);
+    cursor: pointer;
+    font-size: 1.2em;
+    align-self: center;
+    transition: color 0.2s ease-in-out;
+    float: right;
+    line-height: 20px;
 }
-
-/*-- Button Content -- */
-.btn-content {
-  transition: transform 0.1s ease;
-  display: inline-block;
-  /* position: absolute;
-right: 0; */
-}
-
-.liked .btn-content {
-  color: var(--white);
-}
-
-.btn:hover.liked .btn-content {
-  color: var(--black);
-}
-
-.btn:not(.liked) .btn-content--liked {
-  transform: translate(110px)
+.price{
+  display: flex;
+  justify-content: space-between;
 }
 .clo-hidden {
   display: none;
 }
-
 .store-d-topbar {
   display: flex;
   justify-content: center;
