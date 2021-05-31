@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+
+<body>
+    <style>
+        :root {
+            --red: rgb(209, 3, 3);
+            --white: #fff;
+            --black: #000;
+        }
+
+
+
+
+        .btn-like {
+            font-size: 2rem;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: white;
+        }
+
+
+        /*-- Button Icon -- */
+        .btn-icon {
+            display: inline-block;
+            width: 5px;
+            left: 1.5rem;
+            transform: rotate(0deg)
+        }
+
+        .btn-icon {
+            color: var(--red);
+        }
+
+        .btn-icon {
+            color: var(--red);
+        }
+
+        .liked .btn--icon-default {
+            transform: rotate(-90deg)
+        }
+
+        .btn:not(.liked).btn--icon-liked {
+            transform: rotate(-90deg)
+        }
+
+        .liked .btn--icon-default,
+        .btn--icon-liked {
+            opacity: 0;
+            color: red;
+        }
+
+        .btn--icon-default,
+        .liked .btn--icon-liked {
+            opacity: 1;
+            left: 1.5rem;
+        }
+
+        /*-- Button Content -- */
+        .btn-content {
+            transition: transform 0.1s ease;
+            display: inline-block;
+        }
+
+        .liked .btn-content {
+            color: var(--white);
+        }
+
+        .btn:hover.liked .btn-content {
+            color: var(--black);
+        }
+
+        .btn:not(.liked) .btn-content--liked {
+            transform: translate(110px)
+        }
+    </style>
+
+    <button class="btn-heart btn-like" style="
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;">
+        <span class="btn-icon btn--icon-default">
+            <i class="fas fa-heart"></i>
+        </span>
+        <span class="btn-icon btn--icon-liked">
+            <i class="far fa-heart"></i>
+        </span>
+    </button>
+    <script>
+        const button = document.querySelector('.btn-heart');
+        button.addEventListener('click', function () { });
+        // Function is defined here
+        function coolFunction() {
+            console.log('Cool function is called 🚀');
+        }
+        // Function is called here
+        coolFunction();
+        button.addEventListener('click', () => {
+            button.classList.toggle('liked');
+        });
+    </script>
+</body>
+
+</html>

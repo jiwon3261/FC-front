@@ -1,3 +1,79 @@
+.:root {
+  --red: rgb(209, 3, 3);
+  --white: #fff;
+  --black: #000;
+}
+
+
+
+
+.btn-like {
+  font-size: 2rem;
+  border-radius: 10px;
+}
+
+button {
+  background-color: white;
+}
+
+
+/*-- Button Icon -- */
+.btn-icon {
+  display: inline-block;
+  width: 5px;
+  position: absolute;
+  left: 1.5rem;
+  transform: rotate(0deg)
+}
+
+.btn-icon {
+  color: var(--red);
+}
+
+.btn-icon {
+  color: var(--red);
+}
+
+.liked .btn--icon-default {
+  transform: rotate(-90deg)
+}
+
+.btn:not(.liked).btn--icon-liked {
+  transform: rotate(-90deg)
+}
+
+.liked .btn--icon-default,
+.btn--icon-liked {
+  opacity: 0;
+  color: red;
+  position: absolute;
+}
+
+.btn--icon-default,
+.liked .btn--icon-liked {
+  opacity: 1;
+  left: 1.5rem;
+}
+
+/*-- Button Content -- */
+.btn-content {
+  transition: transform 0.1s ease;
+  display: inline-block;
+  /* position: absolute;
+right: 0; */
+}
+
+.liked .btn-content {
+  color: var(--white);
+}
+
+.btn:hover.liked .btn-content {
+  color: var(--black);
+}
+
+.btn:not(.liked) .btn-content--liked {
+  transform: translate(110px)
+}
 .clo-hidden {
   display: none;
 }
