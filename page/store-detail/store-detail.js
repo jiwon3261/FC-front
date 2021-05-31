@@ -85,3 +85,16 @@ function ShowWoman(){
         $woman[i].classList.remove("clo-hidden");
     }
 }
+//좋아요 기능
+const button = document.querySelector('.btn-heart');
+button.addEventListener('click', function () { });
+// Function is defined here
+function coolFunction() {
+    console.log('Cool function is called 🚀');
+}
+// Function is called here
+coolFunction();
+button.addEventListener('click', () => {
+    button.classList.toggle('liked');
+});
+//
