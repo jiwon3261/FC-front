@@ -5,6 +5,11 @@
     <!-- <link rel="stylesheet" href="./index.css"> -->
     <link rel="stylesheet" href="./store-detail.css">
     <link rel="stylesheet" href="./store-detail-media.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body id="page-top">
@@ -20,9 +25,21 @@
     <section class="page-section portfolio" id="portfolio" style="margin-bottom: 30px;">
 
         <div class="container">
+            
             <!-- Portfolio Section Heading-->
-            <div class="page- mb-0">
-                <div class="container d-flex row justify-content-center">
+            <div class="page- mb-0">.
+                <div class="center">
+                    <a href="" class=" col-lg-3  col-md-4 " style="display: flex; justify-content: center; z-index: 10;">
+                        <div class="circle-img" style="margin-left: 0px;
+                        "></div>
+                    </a>
+
+                </div> 
+                <div class="container d-flex row justify-content-center" style="
+                padding-left: 0px;
+                padding-right: 0px;
+                margin-right: 0px;
+                margin-left: 0px;">
                     <!-- <div class="store-text col-lg-3  col-md-4">
                         <p>사업자번호:112-119-117</p>
                         <p>저희 업체는 스트릿 제품이 인기 있습니다.</p>
@@ -30,9 +47,46 @@
                         <p>주소: 경기도 의정부시 행복로 21-5</p>
                         <p>전화번호:010-3905-0855</p>
                     </div> -->
-                    <a href="" class=" col-lg-3  col-md-4 " style="display: flex; justify-content: center;">
-                        <div class="circle-img"></div>
-                    </a>
+                    
+                    <button type="button"id="btn-modal" class="btn-modal btn-primary" data-toggle="modal" data-target="#myModal" style="
+                    border-bottom-width: 0px;
+                    border-right-width: 0px;">
+                    업체 정보
+                    </button>
+                    
+                      <!-- The Modal -->
+                      <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                          
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title" id ="businessTitle"></h4>
+                              <button type="button" class="close" data-dismiss="modal" >×</button>
+                            </div>
+                            
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <div id="address"></div>
+                                <div id="weekday"></div>
+                                <div id="weekendDay"></div>
+                                <div id="interestState"></div>
+                                <div id="holiday"></div>
+                                <div id="phone"></div>
+
+                            </div>
+                            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn-modal btn-danger" data-dismiss="modal" style="background-color:#1abc9c;border-color: #1abc9c;">닫기</button>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                   
 
                 </div>
                 <div class="container-fluid">
@@ -85,6 +139,10 @@
                     </div>
                     <!-- Portfolio Grid Items-->
                     <div class="row justify-content-center">
+
+                        <div id="clothContainer"></div>
+
+<!--                         
                         <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts man">
                             <div class="clo " id="shirt">
                                 <div class="center">
@@ -95,9 +153,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>패션 멘투맨</div>
-                                    <div>L,XL</div>
-                                    <div class="f price">52,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                         <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                     
@@ -114,9 +172,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>무지 갈색 멘투맨</div>
-                                    <div>R,L,XL</div>
-                                    <div class="price">29,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                 </div>
@@ -132,9 +190,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>특 양면 멘투맨</div>
-                                    <div>R,L,XL</div>
-                                    <div class="price">32,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                 </div>
@@ -150,9 +208,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>트렌치코트</div>
-                                    <div>R,L,XL</div>
-                                    <div class="price">2,000,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
 
                                     </div>
@@ -169,9 +227,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>패션 멘투맨</div>
-                                    <div>R,L,XL</div>
-                                    <div class="price">59,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                 </div>
@@ -187,9 +245,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>청스키니</div>
-                                    <div>24~28</div>
-                                    <div class="price">22,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                 </div>
@@ -205,9 +263,9 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>깔끔 와이드 슬렉스</div>
-                                    <div>21~29</div>
-                                    <div class="price">56,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                 </div>
@@ -223,14 +281,14 @@
                                 <br>
                                 <br>
                                 <div class="contents-text">
-                                    <div>스니커즈</div>
-                                    <div>250~290</div>
-                                    <div class="price">29,000원
+                                    <div id ="title"></div>
+                                    <div id ="size"></div>
+                                    <div id ="price"class="f price">
                                          <button type="button" class="btn btn-outline-primary">♥</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -250,20 +308,8 @@
             <small><a>사업자정보확인</a></small>
         </div>
     </div>
-    <!-- Portfolio Modals-->
-    <!-- Portfolio Modal 1-->
-
-    <!-- Portfolio Modal 2-->
-
-    <!-- Portfolio Modal 3-->
-
-    <!-- Portfolio Modal 4-->
-
-    <!-- Portfolio Modal 5-->
-
-    <!-- Portfolio Modal 6-->
-
-    <!-- Bootstrap core JS-->
+    <div id="letitude"></div>
+    <div id="longtitude"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/include.js"></script>
     <script src="https://kit.fontawesome.com/b08bd7bb39.js" crossorigin="anonymous"></script>
@@ -273,11 +319,12 @@
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>
 
     <script>
-
+        let $letitude = document.getElementById("letitude");
+        let $longtitude = document.getElementById("longtitude");
 
         var mapContainer = document.getElementById("map"), // 지도를 표시할 div
             mapOption = {
-                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                center: new kakao.maps.LatLng($letitude, $longtitude), // 지도의 중심좌표
                 level: 3, // 지도의 확대 레벨
             };
 
@@ -285,7 +332,7 @@
         map.setZoomable(false);
 
         // 마커를 표시할 위치입니다
-        var position = new kakao.maps.LatLng(33.450701, 126.570667);
+        var position = new kakao.maps.LatLng($letitude, $longtitude);
 
         // 마커를 생성합니다
         var marker = new kakao.maps.Marker({
