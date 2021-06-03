@@ -1,20 +1,23 @@
-input{
+input {
   display: none;
 }
 input[type="checkbox"]:checked + label {
   color: red;
   transition: all 0.2s;
 }
-.heart{
-  color: var(--bs-teal);
-    cursor: pointer;
-    font-size: 1.2em;
-    align-self: center;
-    transition: color 0.2s ease-in-out;
-    float: right;
-    line-height: 20px;
+#btn-modal {
+  width: 100px;
 }
-.price{
+.heart {
+  color: var(--bs-teal);
+  cursor: pointer;
+  font-size: 1.2em;
+  align-self: center;
+  transition: color 0.2s ease-in-out;
+  float: right;
+  line-height: 20px;
+}
+.price {
   display: flex;
   justify-content: space-between;
 }
@@ -32,7 +35,7 @@ input[type="checkbox"]:checked + label {
   font-size: 0.8rem;
   color: gray;
 }
-.btn-tags{
+.btn-tags {
   list-style: none;
   margin: 30px;
 }
@@ -47,7 +50,7 @@ input[type="checkbox"]:checked + label {
   background-image: url("../../assets/img/portfolio/옷\ 사진2.png");
   position: absolute;
   margin-left: 35px;
-  top: 470px;
+  top: -180px;
 }
 
 .store-d-map {
@@ -99,4 +102,10 @@ input[type="checkbox"]:checked + label {
   -moz-appearance: none;
   appearance: none;
   -webkit-appearance: none;
+}
+.btn-modal {
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
 }
