@@ -73,7 +73,7 @@
   font-weight: bold;
   display: flex;
 }
-.item-info > button,
+/* .item-info > button,
 .info-shop > button {
   border-radius: 50%;
   display: flex;
@@ -82,7 +82,7 @@
   width: 45px;
   height: 45px;
   font-size: 30px;
-}
+} */
 /* main-img */
 .item-img-area div:nth-child(1) {
   position: relative;

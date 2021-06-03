@@ -1,60 +1,81 @@
 window.addEventListener("DOMContentLoaded", () => {
+  let lati = 0;   // 위도
+  let lont = 0; 
+
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition (function(pos) {
+        lati = pos.coords.latitude;     // 위도
+        lont = pos.coords.longitude; // 경도
+    });
+} else {
+    alert("이 브라우저에서는 위치정보가 지원되지 않습니다.")
+}
+
   const dialogCloseBtn = document.getElementById("dialog-close");
   const mobileToggle = document.getElementById("mobile-store-list");
   const storeList = document.getElementById("storeList");
-  const addressChangeBtn = document.getElementById('addressChangeBtn');
-  const addressBarBottom = document.getElementById('addressBarBottom');
+  const addressChangeBtn = document.getElementById("addressChangeBtn");
+  const addressBarBottom = document.getElementById("addressBarBottom");
+  // 지도를 표시할 div
+  var mapContainer = document.getElementById("store-map");
+  //주소->좌표 변환객체
+  var geocoder = new kakao.maps.services.Geocoder();
+  var imageSrc = "../../assets/img/marker-2.png";
+  let imageSize = new kakao.maps.Size(45, 61); // 마커이미지의 크기입니다
+  let imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
+  // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+  var markerImage = new kakao.maps.MarkerImage(
+    imageSrc,
+    imageSize,
+    imageOption
+  );
 
-  const addEventHandler = (elem,type,callback) => {
-    elem.addEventListener(type,callback);
-  }
-  const addressChangeHandler = () => {
-    alert("주소변경")
-  }
+  const addEventHandler = (elem, type, callback) => {
+    elem.addEventListener(type, callback);
+  };
  
-  
 
-  const createMap = () => {
-    var mapContainer = document.getElementById("store-map"), // 지도를 표시할 div
-      mapOption = {
-        center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
-        level: 4, // 지도의 확대 레벨
-      };
+  const createMap = (address) => {
+    mapOption = {
+      center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
+      level: 4, // 지도의 확대 레벨
+    };
 
     var map = new kakao.maps.Map(mapContainer, mapOption);
 
-    var imageSrc = "../../assets/img/marker-2.png", // 마커이미지의 주소입니다
-      imageSize = new kakao.maps.Size(45, 61), // 마커이미지의 크기입니다
-      imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    geocoder.addressSearch(
+      address,
+      function (result, status) {
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+          var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-    var markerImage = new kakao.maps.MarkerImage(
-        imageSrc,
-        imageSize,
-        imageOption
-      ),
-      markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
+          // 결과값으로 받은 위치를 마커로 표시합니다
+          var marker = new kakao.maps.Marker({
+            map: map,
+            position: coords,
+            image: markerImage,
+          });
 
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-      image: markerImage, // 마커이미지 설정
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-
-    // 커스텀 오버레이가 표시될 위치입니다
-    var position = new kakao.maps.LatLng(37.54699, 127.09598);
-
-    // 커스텀 오버레이를 생성합니다
-    var customOverlay = new kakao.maps.CustomOverlay({
-      map: map,
-      position: position,
-      yAnchor: 1,
-    });
+          // 지도 셋팅&마커표기
+          marker.setMap(map);
+          map.setCenter(coords);
+        }
+      }
+    );
   };
+
+  const addressChangeHandler = () => {
+    new daum.Postcode({
+      oncomplete: function (data) {
+        createMap(data['address'])
+        addressBarBottom.innerText =data['address'];
+      },
+    }).open();
+  };
+
 
   const createSlider = () => {
     //부트스트랩 슬라이더
@@ -114,10 +135,6 @@ window.addEventListener("DOMContentLoaded", () => {
     mobileToggleHandler();
   })();
 
-   
-  addEventHandler(addressChangeBtn,'click',addressChangeHandler);
-  addEventHandler(addressBarBottom,'click',addressChangeHandler);
-
-
-
+  addEventHandler(addressChangeBtn, "click", addressChangeHandler);
+  addEventHandler(addressBarBottom, "click", addressChangeHandler);
 });
