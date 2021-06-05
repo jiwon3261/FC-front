@@ -49,8 +49,10 @@ loginBtn.addEventListener("click", () => {
 
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
+
+      location.href="../../page/index/index.html";
     })
     .catch(function (error) {
-      alert(error.response["data"]["msg"]);
+      MessageBox.show(error.response["data"]["msg"],'danger',3000);
     });
 });

@@ -39,34 +39,6 @@
                             placeholder="Enter your phone number..." />
                         <label for="inputPassword1">비밀번호 확인</label>
                     </div>
-                    <div class="form-floating mb-2">
-                        <input class="form-control" id="address" type="text" placeholder="Enter your Price..." disabled/>
-                        <label for="inputAdress1">주소</label>
-                    </div>
-                    <div class="form-floating">
-                        <button id="addAddressBtn" class="btn btn-primary btn-xl btn-address" type="button">주소지 등록</button>
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">주소지 입력</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text">지번/도로명</span>
-                                        <input type="text" class="form-control" placeholder="ex) 서부로 545" aria-describedby="button-addon2">
-                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-                                        </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                                    <button type="button" class="btn btn-primary">입력완료!</button>
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                    </div>
                     <br />
                     <button id="registerMemberBtn" class="btn btn-primary btn-xl joinus" type="button">가입완료</button>
                 </div>
@@ -82,7 +54,7 @@
     </div>
     <!-- Portfolio Modals-->
     <!-- Portfolio Modal 1-->
-    
+    <script src="../../common/message.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -91,9 +63,8 @@
     <script src="../../js/include.js"></script>
     <script src="../../js/validator.js"></script>
     <script src="./joinus.js"></script>
-    <script src="http://127.0.0.1:5502/js/scripts.js"></script>
+    <script src="http://127.0.0.1:5500/js/scripts.js"></script>
     </div>
-
 </body>
 
 </html>

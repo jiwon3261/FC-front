@@ -1,33 +1,8 @@
+const MEMBER_URL = "http://localhost:8081/api/v1/member";
+
 const registerMemberBtn = document.getElementById("registerMemberBtn");
-const addAddressBtn = document.getElementById("addAddressBtn");
 let inputAddressLocation = null;
 
-addAddressBtn.addEventListener("click", () => {
-  new daum.Postcode({
-    oncomplete: function (data) {
-      let config = {
-        headers: {
-          Authorization: "KakaoAK d40c82c42db0892f356fd71c6c36c7a0",
-        },
-      };
-      document.getElementById("address").value = data["jibunAddress"];
-      axios
-        .get(
-          "https://dapi.kakao.com/v2/local/search/address.json?query=" +
-            data["jibunAddress"],
-          config
-        )
-        .then((res) => {
-          const x = res["data"]["documents"][0]["address"]["x"];
-          const y = res["data"]["documents"][0]["address"]["y"];
-          inputAddressLocation = {
-            letitude: y,
-            longtitude: x,
-          };
-        });
-    },
-  }).open();
-});
 
 registerMemberBtn.addEventListener("click", () => {
   const email = document.getElementById("email").value.trim();
@@ -35,22 +10,22 @@ registerMemberBtn.addEventListener("click", () => {
   const passwordChk = document.getElementById("passwordChk").value.trim();
 
   if (InputValidator.isEmpty(email)) {
-    alert("1");
+    MessageBox.show("이메일을 입력해주세요",'danger',3000);
     return;
   }
 
   if (InputValidator.isEmpty(password)) {
-    alert("2");
+    MessageBox.show("비밀번호를 입력해주세요",'danger',3000);
     return;
   }
 
   if (InputValidator.isEmpty(passwordChk)) {
-    alert("3");
+    MessageBox.show("비밀번호 확인란을 입력해주세요.",'danger',3000);
     return;
   }
 
   if (!InputValidator.equal(password, passwordChk)) {
-    alert(4);
+    MessageBox.show("입력하신 비밀번호와 비밀번호 확인란이 일치하지 않습니다.",'danger',3000);
     return;
   }
 
@@ -60,51 +35,15 @@ registerMemberBtn.addEventListener("click", () => {
 async function registerMember(email, password) {
   //body양식
   await axios
-    .post("http://10.202.36.60:8081/api/v1/member", {
+    .post(MEMBER_URL, {
       //데이터인자
       email: email,
       password: password,
     })
     .then(function (response) {
-      alert("회원가입 완료");
-      accessToken(email, password);
-      addAddress(email);
+      location.href="../login/login.html";
     })
     .catch(function (error) {
-      alert(error.response["data"]["msg"]);
+      MessageBox.show(error.response["data"]["msg"],'danger',3000);
     });
-}
-
-async function accessToken(email, password) {
-  const params = new URLSearchParams({
-    email: email,
-    password: password,
-  }).toString();
-  //쿼리
-  await axios
-    .post("http://10.202.36.60:8081/oauth/token?" + params)
-    .then(function (res) {
-      const accessToken = res["data"]["accessToken"];
-      const refreshToken = res["data"]["refreshToken"];
-
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
-    })
-    .catch(function (res) {});
-}
-
-//header
-async function addAddress(email) {
-  if (inputAddressLocation != null) {
-    let config = {
-      headers: {
-        Authorization: localStorage.getItem("accessToken"),
-      },
-    };
-    await axios.put(
-      "http://10.202.36.60:8081/api/v1/member/address",
-      inputAddressLocation,
-      config
-    );
-  }
 }
