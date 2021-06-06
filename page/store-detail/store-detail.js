@@ -1,64 +1,113 @@
-const res = {
-  "businessTitle": "string",
-  "city": "string",
-  "holiday": "string",
-  "interestState": true,
-  "letitude": 0,
-  "longtitude": 0,
-  "neighborhood": "string",
-  "phone": "string",
-  "province": "string",
-  "weekdayEndTime": 0,
-  "weekdayStartTime": 0,
-  "weekendEndTime": 0,
-  "weekendStartTime": 0
-};
-const cloth = {
-  "productList": [
-    {
-      "category": "string",
-      "interest": true,
-      "mainImagePath": "../../assets/img/portfolio/옷 사진1.png",
-      "price": "29,000원",
-      "productId": "string1",
-      "size": "R/L/XL",
-      "title": "string"
-    },
-    {
-      "category": "string",
-      "interest": true,
-      "mainImagePath": "string",
-      "price": 0,
-      "productId": "string2",
-      "size": "string",
-      "title": "string"
-    },
-    {
-      "category": "string",
-      "interest": true,
-      "mainImagePath": "string",
-      "price": 0,
-      "productId": "string3",
-      "size": "string",
-      "title": "string"
-    }
-  ],
-  "totalCount": 0
+const STORE_DETAIL_URL = "http://192.168.0.18:8081/api/v1/store/";
+const PRODUCT_LIST_URL = "http://192.168.0.18:8081/api/v1/product/";
+
+const urlParams = new URLSearchParams(window.location.search);
+const targetStore = urlParams.get('store');
+if (targetStore === null) {
+  location.href = '../../page/main/main.html';
 }
+
+getStoreDetail();
+getProductList();
+async function getProductList() {
+  await axios.get(PRODUCT_LIST_URL + targetStore + "/product?page=0&size=12").then(res => {
+    const cloth = res['data'];
+    // console.log(cloth);
+    for (let i = 0; i < cloth.productList.length; i++) {
+      let innerHTML = '';
+      // console.log("http://192.168.0.18:8081/" + cloth['productList'][i]['mainImagePath'])
+      innerHTML += ` 
+          <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirt${cloth.productList[i]["category"]}>
+          <div class="clo " id="shirt">
+              <div class="center">
+                  <div class="clonths-img-box">
+                      <img class="img" src="http://192.168.0.18:8081/${cloth.productList[i]["mainImagePath"]}" />
+                  </div>
+              </div>
+              <br>
+              <br>
+              <div class="contents-text">
+                  <div>${cloth.productList[i]["title"]}</div>
+                  <div>${cloth.productList[i]["size"]}</div>
+                  <div class="f price">
+                      ${cloth.productList[i]["price"]}
+                      <div id="heart_${cloth.productList[i]["productId"]}" class ="heart-box">
+                      </div>
+                    </div>
+                  
+              </div>
+          </div>
+      </div>`;
+
+
+      $clothContainer.innerHTML = $clothContainer.innerHTML + innerHTML;
+    }
+    let sel = document.getElementById("sel1").addEventListener("change", function () {
+      if (this.value == 'new') {
+        Allhidden();
+      }
+      else if (this.value == 'row-price') {
+        for (let i = 0; i < cloth.productList.length; i++) {
+          let price = cloth.productList[i]['price'];
+          if (cloth.productList[i]['price'] < cloth.productList[i + 1]['price']) {
+            Allhidden();
+
+          }
+        }
+      }
+      else if (this.value == 'high-price') {
+        Allhidden();
+      }
+      else if (this.value == 'like') {
+        Allhidden();
+      }
+    });
+
+
+    for (let i = 0; i < cloth.productList.length; i++) {
+      new LikeBtn(document.getElementById(`heart_${cloth.productList[i]['productId']}`), true, () => { alert("sdfsdfds") })
+    }
+  })
+}
+
+async function getStoreDetail() {
+  const memberInfo = parseJwt(localStorage.getItem('accessToken'));
+
+  axios.get(STORE_DETAIL_URL + memberInfo['sub']).then(res => {
+    res = res['data'];
+    let weekdayStr = `평일 영업시간:${res["weekdayStartTime"]}~${res["weekdayEndTime"]}`;
+    let addressStr = `주소:${res["province"]} ${res["city"]} ${res["neighborhood"]}`;
+    let weekendDayStr = `주말 영업시간:${res["weekendStartTime"]}~${res["weekendEndTime"]}`;
+    let businessTitleStr = `${res["businessTitle"]}`;
+    let holidayStr = `휴일:${res["holiday"]}`;
+    let phoneStr = `연락처: ${res["phone"]}`;
+
+    if (targetStore !== memberInfo['sub']) {
+      let interestStateStr = `좋아요: ${res["interestState"]}`;
+      $interestState.innerText = interestStateStr;
+    }
+
+    if (res["holiday"] === ',') {
+      $holiday.innerHTML = '휴일 : <span class="badge badge-success">연중 무휴</span>';
+
+    } else {
+      $holiday.innerHTML = '<span class="badge badge-success">' + holidayStr + '';
+    }
+
+    $businessTitle.innerText = businessTitleStr;
+    $address.innerText = addressStr;
+    $weekday.innerText = weekdayStr;
+    $weekendDay.innerText = weekendDayStr;
+    $phone.innerText = phoneStr;
+  });
+}
+
 const sort = {
   "row-price": "string",
   "high-price": "string",
   "new": "string",
   "like": true
 }
-let weekdayStr = `평일 영업시간:${res["weekdayStartTime"]}~${res["weekdayEndTime"]}`;
-let addressStr = `주소:${res["province"]} ${res["city"]} ${res["neighborhood"]}`;
-let weekendDayStr = `주말 영업시간:${res["weekendStartTime"]}~${res["weekendEndTime"]}`;
-let interestStateStr = `좋아요: ${res["interestState"]}`;
-let businessTitleStr = `${res["businessTitle"]}`;
-let holidayStr = `휴일:${res["holiday"]}`;
-let phoneStr = `연락처: ${res["phone"]}`;
-let titleStr = `${cloth["title"]}`;
 
 
 let $holiday = document.getElementById("holiday");
@@ -72,14 +121,6 @@ let $size = document.getElementById("size");
 let $price = document.getElementById("price");
 let $title = document.getElementById("title");
 let $clothContainer = document.getElementById("clothContainer");
-
-$businessTitle.innerText = businessTitleStr;
-$address.innerText = addressStr;
-$weekday.innerText = weekdayStr;
-$weekendDay.innerText = weekendDayStr;
-$interestState.innerText = interestStateStr;
-$phone.innerText = phoneStr;
-$holiday.innerText = holidayStr;
 
 const $btnCloth = document.getElementById('btn-cloth');
 const $btnPants = document.getElementById('btn-pants');
@@ -103,60 +144,12 @@ $btnman.addEventListener("click", btnman);
 $btnwoman.addEventListener("click", btnwoman);
 $btnCloth.addEventListener("click", btnCloth);
 
-for (let i = 0; i < cloth.productList.length; i++) {
-  let innerHTML = '';
-  // for(i=0; i < clo.length; i++){
-
-  // }
-  innerHTML += ` 
-    <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirt${cloth.productList[i]["category"]}>
-    <div class="clo " id="shirt">
-        <div class="center">
-            <div class="clonths-img-box">
-                <img class="img" src="${cloth.productList[i]["mainImagePath"]} />
-            </div>
-        </div>
-        <br>
-        <br>
-        <div class="contents-text">
-            <div>${cloth.productList[i]["title"]}</div>
-            <div>${cloth.productList[i]["size"]}</div>
-            <div class="f price">
-                ${cloth.productList[i]["price"]}
-                <div id="heart_${cloth.productList[i]["productId"]}" class ="heart-box">
-                 </div>
-              </div>
-            
-        </div>
-    </div>
-</div>`;
-
-  $clothContainer.innerHTML = $clothContainer.innerHTML + innerHTML;
-
-}
 // alert('sdsdf')
 // console.log(document.getElementById('heart_string1'))
 
-new LikeBtn(document.getElementById('heart_string1'),true,()=>{
-  alert("dfsldjfslkdfjksldfj")
-})
 
 
 
-let sel = document.getElementById("sel1").addEventListener("change", function () {
-  if (this.value == 'new') {
-    Allhidden();
-  }
-  else if (this.value == 'row-price') {
-    Allhidden();
-  }
-  else if (this.value == 'high-price') {
-    Allhidden();
-  }
-  else if (this.value == 'like') {
-    Allhidden();
-  }
-});
 // 가격 구분 함수
 function btnCloth() {
   Allhidden();
@@ -209,76 +202,20 @@ function ShowWoman() {
     $woman[i].classList.remove("clo-hidden");
   }
 }
-async function registerMember(email, password) {
-  //body양식
-  await axios
-    .post("http://10.202.36.60:8081/api/v1/member", {
-      //데이터인자
-      email: email,
-      password: password,
-    })
-    .then(function (response) {
-      alert("회원가입 완료");
-      accessToken(email, password);
-      addAddress(email);
-    })
-    .catch(function (error) {
-      alert(error.response["data"]["msg"]);
-    });
-}
 
-async function accessToken(email, password) {
-  const params = new URLSearchParams({
-    email: email,
-    password: password,
-  }).toString();
-  //쿼리
-  await axios
-    .post("http://10.202.36.60:8081/oauth/token?" + params)
-    .then(function (res) {
-      const accessToken = res["data"]["accessToken"];
-      const refreshToken = res["data"]["refreshToken"];
+function parseJwt(token) {
+  try {
+    const base64HeaderUrl = token.split(".")[0];
+    const base64Header = base64HeaderUrl.replace("-", "+").replace("_", "/");
+    const headerData = JSON.parse(window.atob(base64Header));
 
-      localStorage.setItem("accessToken", accessToken);
-      localStorage.setItem("refreshToken", refreshToken);
-    })
-    .catch(function (res) { });
-}
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace("-", "+").replace("_", "/");
+    const dataJWT = JSON.parse(window.atob(base64));
+    dataJWT.header = headerData;
 
-//header
-async function addAddress(email) {
-  if (inputAddressLocation != null) {
-    let config = {
-      headers: {
-        Authorization: localStorage.getItem("accessToken"),
-      },
-    };
-    await axios.put(
-      "http://10.202.36.60:8081/api/v1/member/address",
-      inputAddressLocation,
-      config
-    );
+    return dataJWT;
+  } catch (err) {
+    return false;
   }
 }
-//   await axios.post('http://10.202.36.60:8081/oauth/token?' + params)
-//   .then(function(res){
-//     const itemInfos = res["data"]["item"];
-//     let innerString = '';
-//     for(let i=0;i<itemInfos.length;i++){
-//       innerString += `<div class="col-lg-3 col-md-4 col-sm-6 clo-card shirts woman">
-//       <div class="clo " id="shirt">
-//           <div class="center">
-//               <div class="clonths-img-box">
-//                   <img class="img" src="${itemInfos.img[i]}" />
-//               </div>
-//           </div>
-//           <br>
-//           <br>
-//           <div class="contents-text">
-//               <div>${itemInfos.item.name[i]}</div>
-//               <div>${itemInfos.item.name[i]},${itemInfos.item.name[i]},${itemInfos.item.name[i]}</div>
-//               <div class="price">${itemInfos.item.price[i]}</div>
-//           </div>
-//       </div>
-//   </div>`;
-//     }
