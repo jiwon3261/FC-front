@@ -2,9 +2,9 @@ getAuth();
 
 function getAuth() {
   const accessToken = localStorage.getItem('accessToken');
-  if(parseJwt(accessToken)['role'][0] === 'ROLE_SELLER'){
+  if(accessToken === null || accessToken === '' || parseJwt(accessToken)['role'][0] === 'ROLE_SELLER'){
     alert('페이지 권한이 존재하지 않습니다.')
-    location.href="../../page/index/index.html";
+    location.href="../../page/login/login.html";
     return;
   }
 }
