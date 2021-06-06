@@ -41,6 +41,7 @@ async function registerMember(email, password) {
       password: password,
     })
     .then(function (response) {
+      
       location.href="../login/login.html";
     })
     .catch(function (error) {

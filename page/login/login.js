@@ -37,6 +37,7 @@ loginBtn.addEventListener("click", () => {
       }
     })
     .catch(function (error) {
+      console.log(error)
       MessageBox.show(error.response["data"]["msg"],'danger',3000);
     });
 });
