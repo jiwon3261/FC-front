@@ -1,24 +1,9 @@
-/*하다 맒 태그 2개까지 선택가능*/
-// const clickTagList = [];
-// const tagButton = Array.from(document.getElementsByClassName("tagButton"));
-// // console.log(tagButton[0].innerHTML);
-// tagButton.addEventListener('click', ()=> {
-//     var tagButton = Array.from(document.getElementsByClassName("tagButton"));
-//         console.log(tagButton);    
-//     if(clickTagList.includes(this.innerText)){
-//                 var indexOf = clickTagList.indexOf(this.innerText);
-//                 clickTagList.splice(indexOf, 1);
-//                 this.classList.toggle('btn-outline-primary');
-//                 return;
-//             }
-        
-//             if(clickTagList.length === 3) {
-//                 alert('내 매장 태그는 3개까지만 허용합니다.');
-//                 return;
-//             }
-//             this.classList.toggle('btn-outline-primary');
-//             clickTagList.push(this.innerText);
-// })
+const uploadFileList = [];
+
+document.getElementById('registerProductBtn').addEventListener('click',()=>{
+    const title = document.getElementById('productTitle').value.trim();
+    const price = document.getElementById('productPrice').value.trim();
+});
 
 /*태그검색*/
 $(document).ready(function() {
@@ -173,11 +158,11 @@ var sel_files = [];
     makeDiv = function (img, file) {
         var fileExtension = file.name.split(".");
         if (fileExtension[1] == "jpg" || fileExtension[1] == "png" || fileExtension[1] == "gif" || fileExtension[1] == "bmp") {
-            // alert("해당 파일은 이미지 파일입니다.");   
         } else {
             alert("해당 파일은 이미지 파일이 아닙니다.");
             return;
         }
+        uploadFileList.push(file);
         var div = document.createElement("div");
         div.setAttribute("style", div_style);
 
