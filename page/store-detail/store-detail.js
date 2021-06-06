@@ -196,7 +196,7 @@ function ShowWoman() {
 async function registerMember(email, password) {
   //body양식
   await axios
-    .post("http://192.168.0.18:8081/api/v1/member", {
+    .post("http://192.168.123.102:8081/api/v1/member", {
       //데이터인자
       email: email,
       password: password,
@@ -218,7 +218,7 @@ async function accessToken(email, password) {
   }).toString();
   //쿼리
   await axios
-    .post("http://192.168.0.18:8081/oauth/token?" + params)
+    .post("http://192.168.123.102:8081/oauth/token?" + params)
     .then(function (res) {
       const accessToken = res["data"]["accessToken"];
       const refreshToken = res["data"]["refreshToken"];
@@ -238,13 +238,13 @@ async function addAddress(email) {
       },
     };
     await axios.put(
-      "http://192.168.0.18:8081/api/v1/member/address",
+      "http://192.168.123.102:8081/api/v1/member/address",
       inputAddressLocation,
       config
     );
   }
 }
-//   await axios.post('http://192.168.0.18:8081/oauth/token?' + params)
+//   await axios.post('http://192.168.123.102:8081/oauth/token?' + params)
 //   .then(function(res){
 //     const itemInfos = res["data"]["item"];
 //     let innerString = '';

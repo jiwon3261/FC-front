@@ -1,5 +1,5 @@
-const TAGS_URL = "http://192.168.0.18:8081/api/v1/store/tags";
-const REGISTER_STORE_URL = "http://192.168.0.18:8081/api/v1/store";
+const TAGS_URL = "http://192.168.123.102:8081/api/v1/store/tags";
+const REGISTER_STORE_URL = "http://192.168.123.102:8081/api/v1/store";
 
 const clickTagList = [];
 
