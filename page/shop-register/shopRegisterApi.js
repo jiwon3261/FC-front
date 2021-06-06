@@ -1,7 +1,7 @@
-const clickTagList = [];
-
 const TAGS_URL = "http://192.168.0.18:8081/api/v1/store/tags";
 const REGISTER_STORE_URL = "http://192.168.0.18:8081/api/v1/store";
+
+const clickTagList = [];
 
 const registerStoreBtn = document.getElementById("registerStoreBtn");
 const addAddressBtn = document.getElementById("addAddressBtn");
@@ -27,7 +27,6 @@ registerStoreBtn.addEventListener("click", () => {
     MessageBox.show('주소지를 입력해주세요','danger',3000);
     return;
   }
-
   axios
     .post(
       REGISTER_STORE_URL,
@@ -54,7 +53,7 @@ registerStoreBtn.addEventListener("click", () => {
       },
       config
     )
-    .then(function (response) {
+    .then(function (res) {
       MessageBox.show('정상적으로 업체가 등록되었습니다. 재로그인 바랍니다.','success',3000);
       localStorage.setItem('accessToken','');
       localStorage.setItem('refreshToken','');
