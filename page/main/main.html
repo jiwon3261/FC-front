@@ -18,97 +18,18 @@
                     <div id="distance-input">10km</div><input type="range" min="1" max="10" value="2" class="slider"
                         id="myRange">
                 </div>
-                <select class="form-control" id="map-filter-select">
+                <!-- <select class="form-control" id="map-filter-select">
                     <option>전체</option>
                     <option>거리순</option>
                     <option>인기순</option>
                     <option>영업중</option>
-                </select>
+                </select> -->
                 <button type="button" id="addressChangeBtn" class="btn btn-primary"><i class="fas fa-search"></i>주소로검색</button>
-                <button type="button" id="mobile-store-list" class="btn btn-primary"><i
-                        class="fas fa-store"></i>LIST</button>
+                <button type="button" id="mobile-store-list" class="btn btn-primary"><i class="fas fa-store"></i>LIST</button>
+                <button type="button" id="myAddressSearchBtn" class="btn btn-secondary" style="margin-left:10px;">내 주소로 검색</button>
             </div>
             <div class="flex-container full-height">
                 <div class="map-store-list" id="storeList">
-                    <div id="store1" class="store-card-container">
-                        <div class="store-info-text">
-                            <div>
-                                <a href="#" class="store-name">패션풀</a>
-                                <div class="store-detail-info">
-                                    <div class="s-d-tag">#오피스룩</div>
-                                    <div class="s-d-tag">#30대</div>
-                                </div>
-                            </div>
-                            <div class="detail-bottom">
-                                <div class="like-btn-container">
-                                    <button id="like1" class="like-btn"><i class="fas fa-heart"></i></button>
-                                    <div class="bottom-detail">
-                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
-                                        <div class="store-state">현재 영업중</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="store-info-img">
-                            <div class="img-area" style="background-image: url('../../assets/img/portfolio/game.png');">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div id="store2" class="store-card-container">
-                        <div class="store-info-text">
-                            <div>
-                                <a href="#" class="store-name">패션풀</a>
-                                <div class="store-detail-info">
-                                    <div class="s-d-tag">#오피스룩</div>
-                                    <div class="s-d-tag">#30대</div>
-                                </div>
-                            </div>
-                            <div class="detail-bottom">
-                                <div class="like-btn-container">
-                                    <button id="like2" class="like-btn"><i class="fas fa-heart"></i></button>
-                                    <div class="bottom-detail">
-                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
-                                        <div class="store-state">현재 영업중</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="store-info-img">
-                            <div class="img-area" style="background-image: url('../../assets/img/portfolio/cake.png');">
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div id="store3" class="store-card-container">
-                        <div class="store-info-text">
-                            <div>
-                                <a href="#" class="store-name">패션풀</a>
-                                <div class="store-detail-info">
-                                    <div class="s-d-tag">#오피스룩</div>
-                                    <div class="s-d-tag">#30대</div>
-                                </div>
-                            </div>
-                            <div class="detail-bottom">
-                                <div class="like-btn-container">
-                                    <button id="like3" class="like-btn"><i class="fas fa-heart"></i></button>
-                                    <div class="bottom-detail">
-                                        <div class="like-count">20 &nbsp;|&nbsp; 1.4km떨어짐</div>
-                                        <div class="store-state">현재 영업중</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="store-info-img">
-                            <div class="img-area"
-                                style="background-image: url('../../assets/img/portfolio/cabin.png');">
-
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <div class="p-0 map-api-container">
                     <div id="store-map" style="width: 100%; min-height: 800px;"></div>
@@ -122,42 +43,34 @@
                                     <div class="store-name">
                                         <div class="dialog-store-name-tag">
                                             <a>
-                                                <h4>패션풀</h4>
+                                                <h4 id="storeTitle"></h4>
                                             </a>
-                                            <div class="store-detail-info">
-                                                <div class="s-d-tag">#오피스룩</div>
-                                                <div class="s-d-tag">#ddd30대</div>
-                                                <div class="s-d-tag">#30대</div>
-                                            </div>
                                         </div>
-
-                                        <img src="../../assets/img/portfolio/safe.png" alt="">
-                                    </div>
-                                    <div class="custom-hr mt-2 mb-2"></div>
-                                    <div>
-                                        주소: 00시00구00동0000 1919
                                     </div>
                                     <div>
-                                        연락처: 010-112-112
+                                        주소: <span id="storeAddress">00시00구00동0000 1919</span>
+                                    </div>
+                                    <div>
+                                        연락처: <span id="storePhone">010-112-112</span>
                                     </div>
                                     <div>
                                         영업정보
                                     </div>
                                     <div class="store-opening-day
                                     ">
-                                        <div>월</div>
-                                        <div>화</div>
-                                        <div>수</div>
-                                        <div>목</div>
-                                        <div class="store-off">금</div>
-                                        <div class="store-off">토</div>
-                                        <div class="store-off">일</div>
+                                        <div id="holiday_월">월</div>
+                                        <div id="holiday_화">화</div>
+                                        <div id="holiday_수">수</div>
+                                        <div id="holiday_목">목</div>
+                                        <div id="holiday_금">금</div>
+                                        <div id="holiday_토">토</div>
+                                        <div id="holiday_일">일</div>
                                     </div>
                                     <div class="store-opening-time">
-                                        주말 - 09:00~ 20:00
+                                        주말 - <span id="weekdayStart">09</span>:00~ <span id="weekdayEnd">20</span>:00
                                     </div>
                                     <div class="store-opening-time">
-                                        평일 - 09:00~ 20:00
+                                        평일 - <span id="weekendStart">09</span>:00~ <span id="weekendEnd">20</span>:00
                                     </div>
                                     <div class="custom-hr mt-2 mb-2"></div>
                                     <div class="mb-2">매장전경</div>
@@ -167,7 +80,7 @@
 
                                     </div>
                                     <div class="row mt-2">
-                                        <button type="button" class="btn btn-primary btn-sm">업체바로가기</button>
+                                        <button type="button" class="btn btn-primary btn-sm" id="redirectStoreDetailBtn">업체바로가기</button>
                                     </div>
                                 </div>
                             </div>
@@ -181,6 +94,7 @@
         경기도 의정부시 동일로 400
     </div>
     <!-- Bootstrap core JS-->
+    <script src="../../common/message.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/b08bd7bb39.js" crossorigin="anonymous"></script>
     <script type="text/javascript"
