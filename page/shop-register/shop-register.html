@@ -179,15 +179,44 @@
                         에 닫아요.
                     </div>
                     <div class="form-floating rest-wrap">
-                        우리 매장은
-                        <button type="button" class="btn btn-outline-info btnday">월</button>
-                        <button type="button" class="btn btn-outline-info btnday">화</button>
-                        <button type="button" class="btn btn-outline-info btnday">수</button>
-                        <button type="button" class="btn btn-outline-info btnday">목</button>
-                        <button type="button" class="btn btn-outline-info btnday">금</button>
-                        <button type="button" class="btn btn-outline-info btnday">토</button>
-                        <button type="button" class="btn btn-outline-info btnday">일</button>
-                        이 휴일이에요.
+                        <div class="mb-1">
+                            휴일 지정
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="월">월
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="화">화
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="수">수
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="목">목
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="금">금
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="토">토
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <label class="form-check-label">
+                              <input type="checkbox" class="form-check-input" name="holiday" value="일">일
+                            </label>
+                          </div>
                     </div>
                     <div class="form-floating mb-2">
                         <div class="label-wrap mb-2">
@@ -424,6 +453,7 @@
             </div>
         </div>
     </div>
+    <script src="../../common/buyerPageAccessChecker.js"></script>
     <script src="../../common/message.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
