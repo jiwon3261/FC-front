@@ -12,9 +12,16 @@
                         href="../index/index.html">MAIN</a></li>
                 <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                         href="../main/main.html">MAP</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                        href="../mypage/mypage.html">MY PAGE</a></li>
-                <li class="nav-item mx-0 mx-lg-1"><a href="../login/login.html"  class="btn btn-outline-primary nav-login-btn">로그인</a>
+                <div id="loginMemberNav">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="../mypage/mypage.html">MY PAGE</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../login/login.html"  class="btn btn-outline-primary nav-login-btn" onclick="localStorage.setItem('accessToken','');localStorage.setItem('refreshToken','');">로그아웃</a>
+                </div>
+                <div id="notLoginMemberNav">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="#" onclick="MessageBox.show('로그인이 필요한 페이지 입니다.','danger',3000);">MY PAGE</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a href="../login/login.html"  class="btn btn-outline-primary nav-login-btn">로그인</a>
+                </div>
                 </li>
             </ul>
         </div>

@@ -19,7 +19,7 @@
 //     }
 //   }
 
-const ACCESS_TOKEN_URL = "http://localhost:8081/oauth/token";
+const ACCESS_TOKEN_URL = "http://192.168.0.18:8081/oauth/token";
 
 const loginBtn = document.getElementById("loginBtn");
 loginBtn.addEventListener("click", () => {

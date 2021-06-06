@@ -19,8 +19,20 @@ class PageIncluder {
           return;
         }
       }
+      changeNav();
     }
   }
   
   PageIncluder.includeHTML();
+
   
+  function changeNav(){
+    const accessToken = localStorage.getItem('accessToken');
+    if(accessToken !== null && accessToken !== ''){
+      document.getElementById('notLoginMemberNav').style.display = 'none';
+      document.getElementById('loginMemberNav').style.display = 'block';
+    }else{
+      document.getElementById('notLoginMemberNav').style.display = 'block';
+      document.getElementById('loginMemberNav').style.display = 'none';
+    }
+  }
