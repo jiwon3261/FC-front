@@ -60,36 +60,6 @@ $(document).ready(function() {
   })
 })
 
-/*전화번호 */
-function setInputFilter(textbox, inputFilter) {
-    ["input", "keydown", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
-        textbox.addEventListener(event, function () {
-            if (inputFilter(this.value)) {
-                this.oldValue = this.value;
-                this.oldSelectionStart = this.selectionStart;
-                this.oldSelectionEnd = this.selectionEnd;
-                //   label_text.innerText = this.value + "  " + "원";
-                //   label_text.innerText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            } else if (this.hasOwnProperty("oldValue")) {
-                this.value = this.oldValue;
-                this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-            } else {
-                this.value = "";
-            }
-        });
-    });
-}
-setInputFilter(document.getElementById("inputPhone1"), function (value) {
-  return /^\d*$/.test(value);
-});
-setInputFilter(document.getElementById("inputPhone2"), function (value) {
-  return /^\d*$/.test(value);
-});
-setInputFilter(document.getElementById("inputPhone3"), function (value) {
-  return /^\d*$/.test(value);
-});
-
-
 $(document).ready(function(){
   $('.input-phone').keyup (function () {
     var charLimit = $(this).attr("maxlength");
