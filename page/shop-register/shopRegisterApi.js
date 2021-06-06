@@ -70,3 +70,71 @@ async function getTags(){
         clickTagList.push(this.innerText);
     }
 }
+
+/*주소검색*/
+const addAddressBtn = document.getElementById("addAddressBtn");
+let inputAddressLocation = null;
+
+addAddressBtn.addEventListener("click", () => {
+  new daum.Postcode({
+    oncomplete: function (data) {
+      let config = {
+        headers: {
+          Authorization: "KakaoAK d40c82c42db0892f356fd71c6c36c7a0",
+        },
+      };
+      document.getElementById("address").value = data["jibunAddress"];
+      document.getElementById("inputAdress2").focus();
+      axios
+        .get(
+          "https://dapi.kakao.com/v2/local/search/address.json?query=" +
+            data["jibunAddress"],
+          config
+        )
+        .then((res) => {
+          const x = res["data"]["documents"][0]["address"]["x"];
+          const y = res["data"]["documents"][0]["address"]["y"];
+          inputAddressLocation = {
+            letitude: y,
+            longtitude: x,
+          };
+        });
+    },
+  }).open();
+});
+
+/*빈칸검사*/
+registerStoreBtn.addEventListener("click", () => {
+    const inputName = document.getElementById("inputName").value.trim();
+    const adress = document.getElementById("address").value.trim();
+    const inputPhone1 = document.getElementById("inputPhone1").value.trim();
+    const inputPhone2 = document.getElementById("inputPhone2").value.trim();
+    const inputPhone3 = document.getElementById("inputPhone3").value.trim();
+  
+    if (InputValidator.isEmpty(inputName)) {
+      alert("1");
+      return;
+    }
+  
+    if (InputValidator.isEmpty(adress)) {
+      alert("2");
+      return;
+    }
+  
+    if (InputValidator.isEmpty(inputPhone1)) {
+      alert("3");
+      return;
+    }
+  
+    if (!InputValidator.isEmpty(inputPhone2)) {
+      alert(4);
+      return;
+    }
+
+    if (!InputValidator.isEmpty(inputPhone3)) {
+        alert(5);
+        return;
+      }
+  
+    registerMember(email, password);
+  });
