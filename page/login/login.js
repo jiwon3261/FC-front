@@ -29,9 +29,32 @@ loginBtn.addEventListener("click", () => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
 
-      location.href="../../page/index/index.html";
+      const memberInfo =parseJwt(accessToken);
+      if(memberInfo['role'][0] === 'ROLE_SELLER'){
+        location.href = '../../page/store-detail/store-detail.html';
+      }else{
+        location.href = '../../page/main/main.html';
+      }
     })
     .catch(function (error) {
       MessageBox.show(error.response["data"]["msg"],'danger',3000);
     });
 });
+
+
+function parseJwt(token) {
+  try {
+    const base64HeaderUrl = token.split(".")[0];
+    const base64Header = base64HeaderUrl.replace("-", "+").replace("_", "/");
+    const headerData = JSON.parse(window.atob(base64Header));
+
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace("-", "+").replace("_", "/");
+    const dataJWT = JSON.parse(window.atob(base64));
+    dataJWT.header = headerData;
+
+    return dataJWT;
+  } catch (err) {
+    return false;
+  }
+}
