@@ -109,3 +109,10 @@ input[type="checkbox"]:checked + label {
   border-bottom-width: 0px;
   border-left-width: 0px;
 }
+.heart-box{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40px;
+  height: 10px;
+}
