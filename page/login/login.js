@@ -19,7 +19,7 @@
 //     }
 //   }
 
-const ACCESS_TOKEN_URL = "http://192.168.0.18:8081/oauth/token";
+const ACCESS_TOKEN_URL = "http://192.168.123.102:8081/oauth/token";
 
 const loginBtn = document.getElementById("loginBtn");
 loginBtn.addEventListener("click", () => {
@@ -53,6 +53,7 @@ loginBtn.addEventListener("click", () => {
       location.href="../../page/index/index.html";
     })
     .catch(function (error) {
+      console.log(error)
       MessageBox.show(error.response["data"]["msg"],'danger',3000);
     });
 });
