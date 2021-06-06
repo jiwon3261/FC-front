@@ -1,6 +1,9 @@
 .container-fluid {
   margin: 1rem 0;
 }
+.page-margin {
+  margin-top: 4em;
+}
 .form-floating .form-select {
   font-size: 24px;
   color: #6c757d;
