@@ -1,7 +1,7 @@
-.row > div:nth-child(0) {
+.row > .div-left {
   order: 2;
 }
-.row > div:nth-child(1) {
+.row > .div-right {
   order: 1;
 }
 /*콘텐츠영역*/
