@@ -34,15 +34,19 @@
                     </div>
                 <div class="col-xl-8">
                     <div class="form-floating mb-2">
-                        <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." autofocus/>
+                        <input class="form-control" id="businessName" type="text" placeholder="Enter your name..." autofocus/>
                         <label for="inputName">상호명</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input class="form-control" id="businessNumber" type="text" placeholder="Enter your name..." autofocus/>
+                        <label for="inputName">사업자 번호</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input class="form-control" id="address" type="text" placeholder="Enter your Price..." disabled/>
                         <label for="inputAdress1">매장위치</label>
                     </div>
                     <div class="form-floating mb-2">
-                            <input class="form-control" id="inputAdress2"  placeholder="Enter your Price..." type="text"/>
+                            <input class="form-control" id="addressDetail"  placeholder="Enter your Price..." type="text"/>
                         <label for="inputAdress2">상세주소</label>
                     </div>
                     <div class="form-floating mb-2">
@@ -51,14 +55,14 @@
                     <div class="form-floating mb-5">
                         <label for="" id="phone-label">전화번호 : </label>
                         <div class="input-phone-wrap">
-                            <input class="input-phone" id="inputPhone1" type="text" maxlength='3'/>-
-                        <input class="input-phone" id="inputPhone2" type="text" maxlength='4'/>-
-                        <input class="input-phone" id="inputPhone3" type="text" maxlength='4'/>   
+                            <input class="input-phone" id="phone1" type="text" maxlength='3'/>-
+                        <input class="input-phone" id="phone2" type="text" maxlength='4'/>-
+                        <input class="input-phone" id="phone3" type="text" maxlength='4'/>   
                         </div>
                     </div>
                     <div class="form-floating selectTime-wrap">
                         우리 매장은 <span>평일</span>
-                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example" id="weekdayStart">
                             <option value="0" selected>00시</option>
                             <option value="1">01시</option>
                             <option value="2">02시</option>
@@ -86,7 +90,7 @@
                             <option value="24">24시</option>
                         </select>
                         에 열고
-                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example" id="weekdayEnd">
                             <option value="0" selected>00시</option>
                             <option value="1">01시</option>
                             <option value="2">02시</option>
@@ -117,7 +121,7 @@
                     </div>
                     <div class="form-floating mb-2 selectTime-wrap">
                         우리 매장은 <span class="week">주말</span>
-                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example" id="weekendStart">
                             <option value="0" selected>00시</option>
                             <option value="1">01시</option>
                             <option value="2">02시</option>
@@ -145,7 +149,7 @@
                             <option value="24">24시</option>
                         </select>
                         에 열고
-                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-sm mb-5 selectTime" aria-label=".form-select-sm example" id="weekendEnd">
                             <option value="0" selected>00시</option>
                             <option value="1">01시</option>
                             <option value="2">02시</option>
@@ -420,6 +424,7 @@
             </div>
         </div>
     </div>
+    <script src="../../common/message.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>

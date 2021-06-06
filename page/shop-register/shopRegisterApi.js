@@ -4,6 +4,9 @@ const TAGS_URL = "http://192.168.123.102:8081/api/v1/store/tags";
 const REGISTER_STORE_URL = "http://192.168.123.102:8081/api/v1/store";
 
 const registerStoreBtn = document.getElementById('registerStoreBtn');
+const addAddressBtn = document.getElementById("addAddressBtn");
+
+let inputAddressLocation = null;
 
 registerStoreBtn.addEventListener('click',()=>{
     let config = {
@@ -11,24 +14,25 @@ registerStoreBtn.addEventListener('click',()=>{
             'Authorization': localStorage.getItem('accessToken'),
         }
     }
+    
     axios.post(REGISTER_STORE_URL,{
         "address": {
-          "letitude": 37.40612091848614,
-          "longtitude": 127.1163593869371
+          "letitude": inputAddressLocation['letitude'],
+          "longtitude": inputAddressLocation['longtitude']
         },
-        "addressDetail": "string",
-        "businessName": "string",
-        "businessNumber": "1234567890",
+        "addressDetail": document.getElementById('addressDetail').value.trim(),
+        "businessName": document.getElementById('businessName').value.trim(),
+        "businessNumber": document.getElementById('businessNumber').value.trim(),
         "holidays": [
         ],
-        "phone": "010-0000-0000",
+        "phone": document.getElementById('phone1').value + "-" + document.getElementById('phone2').value + "-" + document.getElementById('phone3').value,
         "storeTags": [
           "태그_1"
         ],
-        "weekdayEndTime": 24,
-        "weekdayStartTime": 0,
-        "weekendEndTime": 24,
-        "weekendStartTime": 0
+        "weekdayEndTime": document.getElementById('weekdayEnd').value,
+        "weekdayStartTime": document.getElementById('weekdayStart').value,
+        "weekendEndTime": document.getElementById('weekendEnd').value,
+        "weekendStartTime": document.getElementById('weekendStart').value
       },config)
     .then(function(response) {
         alert('등록 성공');
@@ -71,10 +75,6 @@ async function getTags(){
     }
 }
 
-/*주소검색*/
-const addAddressBtn = document.getElementById("addAddressBtn");
-let inputAddressLocation = null;
-
 addAddressBtn.addEventListener("click", () => {
   new daum.Postcode({
     oncomplete: function (data) {
@@ -102,39 +102,3 @@ addAddressBtn.addEventListener("click", () => {
     },
   }).open();
 });
-
-/*빈칸검사*/
-registerStoreBtn.addEventListener("click", () => {
-    const inputName = document.getElementById("inputName").value.trim();
-    const adress = document.getElementById("address").value.trim();
-    const inputPhone1 = document.getElementById("inputPhone1").value.trim();
-    const inputPhone2 = document.getElementById("inputPhone2").value.trim();
-    const inputPhone3 = document.getElementById("inputPhone3").value.trim();
-  
-    if (InputValidator.isEmpty(inputName)) {
-      alert("1");
-      return;
-    }
-  
-    if (InputValidator.isEmpty(adress)) {
-      alert("2");
-      return;
-    }
-  
-    if (InputValidator.isEmpty(inputPhone1)) {
-      alert("3");
-      return;
-    }
-  
-    if (!InputValidator.isEmpty(inputPhone2)) {
-      alert(4);
-      return;
-    }
-
-    if (!InputValidator.isEmpty(inputPhone3)) {
-        alert(5);
-        return;
-      }
-  
-    registerMember(email, password);
-  });
