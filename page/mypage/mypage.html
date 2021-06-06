@@ -384,29 +384,8 @@
                             <div class="user-email">유저 ID : <span>rnskqkd@naver.com</span></div>
                             <div class="user-adress mb-1">현 주소 : <span>강남구 역삼동 657-30</span></div>
                             <div class="d-grid gap-2">
-                                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">주소지 변경할래요!</button>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                      <div class="modal-content">
-                                        <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">주소지 변경</h5>
-                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="input-group mb-3">
-                                                <span class="input-group-text">지번/도로명</span>
-                                                <input type="text" class="form-control" placeholder="ex) 서부로 545" aria-describedby="button-addon2">
-                                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-                                              </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                                          <button type="button" class="btn btn-primary">변경완료!</button>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
+                                <button id="addAddressBtn" class="btn btn-primary btn-address" type="button">주소지 변경할래요!</button>
+                                </div>
                         </div>
                       </div>
 
@@ -739,7 +718,11 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../js/include.js"></script>
-    <script src="http://127.0.0.1:5500/js/scripts.js"></script>
+    <script src="../../page/mypage/mypage.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://127.0.0.1:5502/js/scripts.js"></script>
     </div>
 
     <!-- js -->
