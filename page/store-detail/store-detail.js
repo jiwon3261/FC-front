@@ -1,5 +1,6 @@
-const STORE_DETAIL_URL = "http://192.168.0.18:8081/api/v1/store/";
-const PRODUCT_LIST_URL = "http://192.168.0.18:8081/api/v1/product/";
+const STORE_DETAIL_URL = "http://10.202.36.92:8081/api/v1/store/";
+const PRODUCT_LIST_URL = "http://10.202.36.92:8081/api/v1/product/";
+const PRODUCT_INTEREST_URL = "http://10.202.36.92:8081/api/v1/member/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const targetStore = urlParams.get('store');
@@ -10,18 +11,28 @@ if (targetStore === null) {
 getStoreDetail();
 getProductList();
 async function getProductList() {
-  await axios.get(PRODUCT_LIST_URL + targetStore + "/product?page=0&size=12").then(res => {
+  let config = {};
+  const accessToken = localStorage.getItem('accessToken');
+  if(accessToken !== null && accessToken !== ''){
+    config = {
+      headers: {
+        Authorization: localStorage.getItem("accessToken"),
+      },
+    };
+  }
+
+  await axios.get(PRODUCT_LIST_URL + targetStore + "/product?page=0&size=12",config).then(res => {
     const cloth = res['data'];
     // console.log(cloth);
     for (let i = 0; i < cloth.productList.length; i++) {
       let innerHTML = '';
-      // console.log("http://192.168.0.18:8081/" + cloth['productList'][i]['mainImagePath'])
+      // console.log("http://10.202.36.92:8081/" + cloth['productList'][i]['mainImagePath'])
       innerHTML += ` 
           <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirt${cloth.productList[i]["category"]}>
           <div class="clo " id="shirt">
               <div class="center">
                   <div class="clonths-img-box">
-                      <img class="img" src="http://192.168.0.18:8081/${cloth.productList[i]["mainImagePath"]}" />
+                      <img class="img" src="http://10.202.36.92:8081/${cloth.productList[i]["mainImagePath"]}" />
                   </div>
               </div>
               <br>
@@ -43,10 +54,16 @@ async function getProductList() {
       $clothContainer.innerHTML = $clothContainer.innerHTML + innerHTML;
     }
   
-
-
-    for (let i = 0; i < cloth.productList.length; i++) {
-      new LikeBtn(document.getElementById(`heart_${cloth.productList[i]['productId']}`), true, () => { alert("sdfsdfds") })
+    if(accessToken !== null && accessToken !== ''){
+      for (let i = 0; i < cloth.productList.length; i++) {
+        console.log(cloth.productList[i]['interest']);
+        new LikeBtn(document.getElementById(`heart_${cloth.productList[i]['productId']}`), cloth.productList[i]['interest'], () => { 
+          axios.post(PRODUCT_INTEREST_URL + cloth.productList[i]['productId'] + "/product/interest",{},config)
+            .then(res=>{
+              console.log(res)
+            });
+        })
+      }
     }
   })
 }
@@ -54,7 +71,7 @@ async function getProductList() {
 async function getStoreDetail() {
   const memberInfo = parseJwt(localStorage.getItem('accessToken'));
 
-  axios.get(STORE_DETAIL_URL + memberInfo['sub']).then(res => {
+  axios.get(STORE_DETAIL_URL + targetStore).then(res => {
     res = res['data'];
     let weekdayStr = `평일 영업시간:${res["weekdayStartTime"]}~${res["weekdayEndTime"]}`;
     let addressStr = `주소:${res["province"]} ${res["city"]} ${res["neighborhood"]}`;
@@ -62,6 +79,8 @@ async function getStoreDetail() {
     let businessTitleStr = `${res["businessTitle"]}`;
     let holidayStr = `휴일:${res["holiday"]}`;
     let phoneStr = `연락처: ${res["phone"]}`;
+    const letitude = res['letitude'];
+    const longtitude = res['longtitude'];
 
     if (targetStore !== memberInfo['sub']) {
       let interestStateStr = `좋아요: ${res["interestState"]}`;
@@ -80,6 +99,7 @@ async function getStoreDetail() {
     $weekday.innerText = weekdayStr;
     $weekendDay.innerText = weekendDayStr;
     $phone.innerText = phoneStr;
+    createMap(letitude, longtitude);
   });
 }
 
@@ -199,4 +219,26 @@ function parseJwt(token) {
   } catch (err) {
     return false;
   }
+}
+
+function createMap(letitude,longtitude){
+  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+  mapOption = {
+      center: new kakao.maps.LatLng(letitude, longtitude), // 지도의 중심좌표
+      level: 3 // 지도의 확대 레벨
+  };
+  
+  // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+  var map = new kakao.maps.Map(mapContainer, mapOption);
+  var markerPosition = new kakao.maps.LatLng(letitude, longtitude);
+  
+  // 마커를 생성합니다
+  var marker = new kakao.maps.Marker({
+  position: markerPosition
+  });
+  
+  // 마커가 지도 위에 표시되도록 설정합니다
+  marker.setMap(map);
+  map.setZoomable(false);
+  
 }
