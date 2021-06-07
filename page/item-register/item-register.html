@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="./index.css"> -->
 </head>
 
-<body id="page-top" class="nav-shadow-on">
+<body id="page-top">
     <!-- Navigation-->
     <nav include-html="../../include/nav.html">
     </nav>
@@ -15,7 +15,7 @@
     </section>
     <!-- Contact Section-->
     <section class="page-section" id="contact">
-        <div class="container-fluid full-padding-container">
+        <div class="container-fluid">
             <!-- Contact Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">상품 등록</h2>
             <!-- Icon Divider-->
@@ -27,7 +27,7 @@
             <!-- Contact Section Form-->
             <div class="row justify-content-center">
                 <div class="col-xl-4 mb-5">
-                    <div id="image_container" class="mb-2"><img src="/page/mypage/images/sample16.jpg"></div>
+                    <div id="image_container" class="mb-2"><img src="http://192.168.123.102:8081/default_image.PNG"></div>
                     <div id="att_zone" data-placeholder="이미지를 첨부 하려면 버튼을 클릭하거나 파일을 드래그앤드롭 하세요. (최대 5장)" class="mb-2 img-scroll"></div>
                         <input type="file" id="btnAtt" multiple="multiple" />
                         <label class="file-label btn btn-primary btn-xl" for="btnAtt">이미지 업로드</label>
@@ -35,74 +35,70 @@
                     <div class="col-xl-8">
                         <form>
                             <div class="form-floating">
-                                <input class="form-control" id="inputName" type="text" placeholder="Enter your name..." autofocus/>
+                                <input class="form-control" id="productTitle" type="text" placeholder="Enter your name..." autofocus/>
                                 <label for="inputName">상품명</label>
                             </div>
                             <div class="form-floating">
-                                <input class="form-control" id="inputPrice" type="text" placeholder="Enter your Price..." />
+                                <input class="form-control" id="productPrice" type="text" placeholder="Enter your Price..." />
                                 <label for="inputPrice" id="label_text">가격</label>
                             </div>
+                            <br>
                             <div class="form-floating mb-2">
-                                <input class="form-control" id="inputSize" type="text" placeholder="ex) L, XL" />
-                                <label for="inputSize">사이즈</label>
+                                <span style="margin-right: 10px;">사이즈 : </span>
+                                <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                      <input type="checkbox" class="form-check-input" value="XS" name="size">XS
+                                    </label>
+                                  </div>
+                                  <div class="form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="S" name="size">S
+                                    </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="M" name="size">M
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="L" name="size">L
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="XL" name="size">XL
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="XXL" name="size">XXL
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" value="FREE" name="size">FREE
+                                        </label>
+                                    </div>
                             </div>
+                            <br>
                             <div class="form-floating">
-                                <select class="form-select form-select-sm mb-5" aria-label=".form-select-sm example">
-                                    <option selected>--카테고리--</option>
-                                    <option value="1">상의</option>
-                                    <option value="2">하의</option>
-                                    <option value="3">상의</option>
-                                    <option value="4">하의</option>
-                                    <option value="5">상의</option>
-                                    <option value="6">하의</option>
-                                    <option value="7">트위스트 추면서~</option>
+                                <select class="form-select form-select-sm mb-5" aria-label=".form-select-sm example" id="productCategory">
+                                    <option value="상의" selected>상의</option>
+                                    <option value="하의">하의</option>
+                                    <option value="신발">신발</option>
                                 </select>
                             </div>
                             <div class="form-floating">
                                 <div class="label-wrap mb-2">
                                     <div><label for="inputTag"># 상품 태그는 최대 2개 선택할 수 있습니다.</label></div>
-                                    <div id="tagAppend"><input type="text" class="search2" id="search">
-                                        <label for="search" class="search1">#내 상품에 등록 할 태그 검색 : </label></div>
                                 </div>
-                                <div class="tag-div form-control" id="inputTag" placeholder="Enter your Tag here...">
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary1</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary2</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary3</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary4</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
-                                    <button type="button" class="btn btn-outline-primary tagButton">Primary</button>
+                                <div class="tag-div form-control" id="tags">
                                 </div>
                             </div>
                             <br />
-                            <button class="btn btn-primary btn-xl" type="submit">등록하기</button>
-                            <button class="btn btn-default btn-xl" type="submit">이전으로</button>
+                            <button class="btn btn-primary btn-xl" type="button" id="registerProductBtn">등록하기</button>
+                            <button class="btn btn-default btn-xl" type="button">이전으로</button>
                         </form>
                     </div>
             </div>
@@ -327,7 +323,7 @@
             </div>
         </div>
     </div>
-    <script src="../../common/sellerPageAccessChecker.js"></script>
+    <script src="../../common/message.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>

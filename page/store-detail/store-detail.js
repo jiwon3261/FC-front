@@ -50,8 +50,7 @@ async function getProductList() {
         for (let i = 0; i < cloth.productList.length; i++) {
           let price = cloth.productList[i]['price'];
           if (cloth.productList[i]['price'] < cloth.productList[i + 1]['price']) {
-            Allhidden();
-
+                        
           }
         }
       }
