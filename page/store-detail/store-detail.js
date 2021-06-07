@@ -1,5 +1,5 @@
-const STORE_DETAIL_URL = "http://192.168.0.18:8081/api/v1/store/";
-const PRODUCT_LIST_URL = "http://192.168.0.18:8081/api/v1/product/";
+const STORE_DETAIL_URL = "http://10.202.36.92:8081/api/v1/store/";
+const PRODUCT_LIST_URL = "http://10.202.36.92:8081/api/v1/product/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const targetStore = urlParams.get('store');
@@ -15,13 +15,13 @@ async function getProductList() {
     // console.log(cloth);
     for (let i = 0; i < cloth.productList.length; i++) {
       let innerHTML = '';
-      // console.log("http://192.168.0.18:8081/" + cloth['productList'][i]['mainImagePath'])
+      // console.log("http://10.202.36.92:8081/" + cloth['productList'][i]['mainImagePath'])
       innerHTML += ` 
           <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirt${cloth.productList[i]["category"]}>
           <div class="clo " id="shirt">
               <div class="center">
                   <div class="clonths-img-box">
-                      <img class="img" src="http://192.168.0.18:8081/${cloth.productList[i]["mainImagePath"]}" />
+                      <img class="img" src="http://10.202.36.92:8081/${cloth.productList[i]["mainImagePath"]}" />
                   </div>
               </div>
               <br>
@@ -42,27 +42,6 @@ async function getProductList() {
 
       $clothContainer.innerHTML = $clothContainer.innerHTML + innerHTML;
     }
-    let sel = document.getElementById("sel1").addEventListener("change", function () {
-      if (this.value == 'new') {
-        Allhidden();
-      }
-      else if (this.value == 'row-price') {
-        for (let i = 0; i < cloth.productList.length; i++) {
-          let price = cloth.productList[i]['price'];
-          if (cloth.productList[i]['price'] < cloth.productList[i + 1]['price']) {
-                        
-          }
-        }
-      }
-      else if (this.value == 'high-price') {
-        Allhidden();
-      }
-      else if (this.value == 'like') {
-        Allhidden();
-      }
-    });
-
-
     for (let i = 0; i < cloth.productList.length; i++) {
       new LikeBtn(document.getElementById(`heart_${cloth.productList[i]['productId']}`), true, () => { alert("sdfsdfds") })
     }
