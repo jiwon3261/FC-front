@@ -1,5 +1,5 @@
-const PRODUCT_TAG_URL = "http://192.168.123.102:8081/api/v1/product/tags";
-const PRODUCT_URL = "http://192.168.123.102:8081/api/v1/product";
+const PRODUCT_TAG_URL = "http://10.202.36.92:8081/api/v1/product/tags";
+const PRODUCT_URL = "http://10.202.36.92:8081/api/v1/product";
 
 const uploadFileList = [];
 const selectTagList = [];
@@ -57,32 +57,35 @@ document.getElementById("registerProductBtn").addEventListener("click", () => {
   let config = {
     headers: {
       Authorization: localStorage.getItem("accessToken"),
-      'Content-Type': 'multipart/form-data'
+      "Content-Type": "multipart/form-data",
     },
   };
   var data = new FormData();
-  data.append('category', category);
-  data.append('mainImageIdx', mainImageIdx);
-  uploadFileList.map(file=>{
-    data.append('images', file);
+  data.append("category", category);
+  data.append("mainImageIdx", mainImageIdx);
+  uploadFileList.map((file) => {
+    data.append("images", file);
   });
-  data.append('price', price);
-  sizes.map(val=>{
-    data.append('sizes', val);
+  data.append("price", price);
+  sizes.map((val) => {
+    data.append("sizes", val);
   });
-  selectTagList.map(val=>{
-    data.append('tags',val);
+  selectTagList.map((val) => {
+    data.append("tags", val);
   });
-  data.append('title',title);
+  data.append("title", title);
 
-  axios.post(PRODUCT_URL,data,config).then(res=>{
-    MessageBox.show('의류 등록 완료','success',3000);
-    setTimeout(() => {
-        location.href = '../../page/store-detail/store-detail.html';
-    }, 3000);
-  }).catch(error=>{
-    MessageBox.show(error.response["data"]["msg"],'danger',3000);
-  });
+  axios
+    .post(PRODUCT_URL, data, config)
+    .then((res) => {
+      MessageBox.show("의류 등록 완료", "success", 3000);
+      setTimeout(() => {
+        location.href = "../../page/store-detail/store-detail.html";
+      }, 3000);
+    })
+    .catch((error) => {
+      MessageBox.show(error.response["data"]["msg"], "danger", 3000);
+    });
 });
 
 /*태그검색*/

@@ -1,8 +1,8 @@
-const MEMBER_ADDRESS_URL = "http://192.168.123.102:8081/api/v1/member/address";
+const MEMBER_ADDRESS_URL = "http://10.202.36.92:8081/api/v1/member/address";
 const MEMBER_STORE_INTEREST_STORE_URL =
-  "http://192.168.123.102:8081/api/v1/member/interest-store";
+  "http://10.202.36.92:8081/api/v1/member/interest-store";
 const MEMBER_ITEM_INTEREST_ITEM_URL =
-  "http://192.168.123.102:8081/api/v1/member/interest-product";
+  "http://10.202.36.92:8081/api/v1/member/interest-product";
 
 console.log(localStorage.getItem("accessToken"));
 
@@ -139,7 +139,7 @@ addAddressBtn.addEventListener("click", () => {
           };
           axios
             .put(
-              "http://192.168.123.102:8081/api/v1/member/address",
+              "http://10.202.36.92:8081/api/v1/member/address",
               {
                 letitude: y,
                 longtitude: x,

@@ -1,5 +1,5 @@
 (() => {
-  const serverURI = "http://192.168.123.102:8081";
+  const serverURI = "http://10.202.36.92:8081";
   let nowProductId;
   let nowStoreId;
 
@@ -40,30 +40,30 @@
   };
 
   const createImgs = (data) => {
-      const $subImgContainer = document.getElementById('subImg');
-      const $mainImgElem = document.getElementById('mainImg');
-      for(let i=0;i<data.length;i++){
-          if(data[i]['type'] === 'SUB'){
-            //서브이미지
-            let imgElem = document.createElement('img');
-            imgElem.setAttribute('src',`${serverURI}/${data[i]['path']}`)
-            imgElem.setAttribute('alt',`subImage`);
-            $subImgContainer.appendChild(imgElem)
-          }else {
-            $mainImgElem.setAttribute('src',`${serverURI}/${data[i]['path']}`)
-          }
+    const $subImgContainer = document.getElementById("subImg");
+    const $mainImgElem = document.getElementById("mainImg");
+    for (let i = 0; i < data.length; i++) {
+      if (data[i]["type"] === "SUB") {
+        //서브이미지
+        let imgElem = document.createElement("img");
+        imgElem.setAttribute("src", `${serverURI}/${data[i]["path"]}`);
+        imgElem.setAttribute("alt", `subImage`);
+        $subImgContainer.appendChild(imgElem);
+      } else {
+        $mainImgElem.setAttribute("src", `${serverURI}/${data[i]["path"]}`);
       }
-  }
+    }
+  };
   //의류정보 clothInfo
-//   (()=>{
-      
-//   })();
+  //   (()=>{
+
+  //   })();
   axios
     .get(`${serverURI}/api/v1/product/1`)
     .then((res) => {
       let _res = res["data"];
       console.log(_res);
-      nowProductId = _res['productId'];
+      nowProductId = _res["productId"];
       elemInnerHTML("item-tag-container", createTagsHtml(_res["tags"]));
 
       elemInnerText("item-name-container", _res["title"]);
@@ -72,7 +72,7 @@
         `${priceAddComma(_res["price"])} won`
       );
       elemInnerHTML("item-size-container", createsizeHtml(_res["size"]));
-      createImgs(_res['images']);
+      createImgs(_res["images"]);
     })
     .catch((error) => {
       console.log(error);
