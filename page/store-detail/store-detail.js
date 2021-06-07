@@ -1,27 +1,29 @@
-const STORE_DETAIL_URL = "http://192.168.0.18:8081/api/v1/store/";
-const PRODUCT_LIST_URL = "http://192.168.0.18:8081/api/v1/product/";
+const STORE_DETAIL_URL = "http://10.202.36.92:8081/api/v1/store/";
+const PRODUCT_LIST_URL = "http://10.202.36.92:8081/api/v1/product/";
 
 const urlParams = new URLSearchParams(window.location.search);
-const targetStore = urlParams.get('store');
+const targetStore = urlParams.get("store");
 if (targetStore === null) {
-  location.href = '../../page/main/main.html';
+  location.href = "../../page/main/main.html";
 }
 
 getStoreDetail();
 getProductList();
 async function getProductList() {
-  await axios.get(PRODUCT_LIST_URL + targetStore + "/product?page=0&size=12").then(res => {
-    const cloth = res['data'];
-    // console.log(cloth);
-    for (let i = 0; i < cloth.productList.length; i++) {
-      let innerHTML = '';
-      // console.log("http://192.168.0.18:8081/" + cloth['productList'][i]['mainImagePath'])
-      innerHTML += ` 
+  await axios
+    .get(PRODUCT_LIST_URL + targetStore + "/product?page=0&size=12")
+    .then((res) => {
+      const cloth = res["data"];
+      // console.log(cloth);
+      for (let i = 0; i < cloth.productList.length; i++) {
+        let innerHTML = "";
+        // console.log("http://10.202.36.92:8081/" + cloth['productList'][i]['mainImagePath'])
+        innerHTML += ` 
           <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirt${cloth.productList[i]["category"]}>
           <div class="clo " id="shirt">
               <div class="center">
                   <div class="clonths-img-box">
-                      <img class="img" src="http://192.168.0.18:8081/${cloth.productList[i]["mainImagePath"]}" />
+                      <img class="img" src="http://10.202.36.92:8081/${cloth.productList[i]["mainImagePath"]}" />
                   </div>
               </div>
               <br>
@@ -39,41 +41,46 @@ async function getProductList() {
           </div>
       </div>`;
 
-
-      $clothContainer.innerHTML = $clothContainer.innerHTML + innerHTML;
-    }
-    let sel = document.getElementById("sel1").addEventListener("change", function () {
-      if (this.value == 'new') {
-        Allhidden();
+        $clothContainer.innerHTML = $clothContainer.innerHTML + innerHTML;
       }
-      else if (this.value == 'row-price') {
-        for (let i = 0; i < cloth.productList.length; i++) {
-          let price = cloth.productList[i]['price'];
-          if (cloth.productList[i]['price'] < cloth.productList[i + 1]['price']) {
-                        
+      let sel = document
+        .getElementById("sel1")
+        .addEventListener("change", function () {
+          if (this.value == "new") {
+            Allhidden();
+          } else if (this.value == "row-price") {
+            for (let i = 0; i < cloth.productList.length; i++) {
+              let price = cloth.productList[i]["price"];
+              if (
+                cloth.productList[i]["price"] <
+                cloth.productList[i + 1]["price"]
+              ) {
+              }
+            }
+          } else if (this.value == "high-price") {
+            Allhidden();
+          } else if (this.value == "like") {
+            Allhidden();
           }
-        }
-      }
-      else if (this.value == 'high-price') {
-        Allhidden();
-      }
-      else if (this.value == 'like') {
-        Allhidden();
+        });
+
+      for (let i = 0; i < cloth.productList.length; i++) {
+        new LikeBtn(
+          document.getElementById(`heart_${cloth.productList[i]["productId"]}`),
+          true,
+          () => {
+            alert("sdfsdfds");
+          }
+        );
       }
     });
-
-
-    for (let i = 0; i < cloth.productList.length; i++) {
-      new LikeBtn(document.getElementById(`heart_${cloth.productList[i]['productId']}`), true, () => { alert("sdfsdfds") })
-    }
-  })
 }
 
 async function getStoreDetail() {
-  const memberInfo = parseJwt(localStorage.getItem('accessToken'));
+  const memberInfo = parseJwt(localStorage.getItem("accessToken"));
 
-  axios.get(STORE_DETAIL_URL + memberInfo['sub']).then(res => {
-    res = res['data'];
+  axios.get(STORE_DETAIL_URL + memberInfo["sub"]).then((res) => {
+    res = res["data"];
     let weekdayStr = `평일 영업시간:${res["weekdayStartTime"]}~${res["weekdayEndTime"]}`;
     let addressStr = `주소:${res["province"]} ${res["city"]} ${res["neighborhood"]}`;
     let weekendDayStr = `주말 영업시간:${res["weekendStartTime"]}~${res["weekendEndTime"]}`;
@@ -81,16 +88,17 @@ async function getStoreDetail() {
     let holidayStr = `휴일:${res["holiday"]}`;
     let phoneStr = `연락처: ${res["phone"]}`;
 
-    if (targetStore !== memberInfo['sub']) {
+    if (targetStore !== memberInfo["sub"]) {
       let interestStateStr = `좋아요: ${res["interestState"]}`;
       $interestState.innerText = interestStateStr;
     }
 
-    if (res["holiday"] === ',') {
-      $holiday.innerHTML = '휴일 : <span class="badge badge-success">연중 무휴</span>';
-
+    if (res["holiday"] === ",") {
+      $holiday.innerHTML =
+        '휴일 : <span class="badge badge-success">연중 무휴</span>';
     } else {
-      $holiday.innerHTML = '<span class="badge badge-success">' + holidayStr + '';
+      $holiday.innerHTML =
+        '<span class="badge badge-success">' + holidayStr + "";
     }
 
     $businessTitle.innerText = businessTitleStr;
@@ -104,10 +112,9 @@ async function getStoreDetail() {
 const sort = {
   "row-price": "string",
   "high-price": "string",
-  "new": "string",
-  "like": true
-}
-
+  new: "string",
+  like: true,
+};
 
 let $holiday = document.getElementById("holiday");
 let $phone = document.getElementById("phone");
@@ -121,22 +128,22 @@ let $price = document.getElementById("price");
 let $title = document.getElementById("title");
 let $clothContainer = document.getElementById("clothContainer");
 
-const $btnCloth = document.getElementById('btn-cloth');
-const $btnPants = document.getElementById('btn-pants');
-const $btnshoose = document.getElementById('btn-shoose');
-const $btnman = document.getElementById('btn-man');
-const $btnwoman = document.getElementById('btn-woman');
-const $clo = document.getElementsByClassName('clo-card');
-const $man = document.getElementsByClassName('man');
-const $woman = document.getElementsByClassName('woman');
-const $shirts = document.getElementsByClassName('shirts');
-const $pants = document.getElementsByClassName('pants');
-const $shoose = document.getElementsByClassName('shoose');
+const $btnCloth = document.getElementById("btn-cloth");
+const $btnPants = document.getElementById("btn-pants");
+const $btnshoose = document.getElementById("btn-shoose");
+const $btnman = document.getElementById("btn-man");
+const $btnwoman = document.getElementById("btn-woman");
+const $clo = document.getElementsByClassName("clo-card");
+const $man = document.getElementsByClassName("man");
+const $woman = document.getElementsByClassName("woman");
+const $shirts = document.getElementsByClassName("shirts");
+const $pants = document.getElementsByClassName("pants");
+const $shoose = document.getElementsByClassName("shoose");
 const clo = { $shirts, $pants, $shoose, $man, $woman };
 
-const $clothsContainer = document.getElementsByClassName('cloths-container');
-const $genricBtn = document.getElementsByClassName('genric-btn');
-const $galleryItem = document.getElementsByClassName('gallery-item');
+const $clothsContainer = document.getElementsByClassName("cloths-container");
+const $genricBtn = document.getElementsByClassName("genric-btn");
+const $galleryItem = document.getElementsByClassName("gallery-item");
 $btnPants.addEventListener("click", btnPants);
 $btnshoose.addEventListener("click", btnshoose);
 $btnman.addEventListener("click", btnman);
@@ -145,9 +152,6 @@ $btnCloth.addEventListener("click", btnCloth);
 
 // alert('sdsdf')
 // console.log(document.getElementById('heart_string1'))
-
-
-
 
 // 가격 구분 함수
 function btnCloth() {

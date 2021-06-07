@@ -25,7 +25,7 @@ async function getInterestStore() {
     let innerHTML = document.getElementById("interestStore").innerHTML;
     for (let i = 0; i < data["interestStoreList"].length; i++) {
       innerHTML += `<tr>
-      <th scope="row" class="shop-img-th"><a href="#"><img src="http://192.168.0.18:8081/${data["interestStoreList"][i]["mainImage"]}" class="img-shop" alt="샘플1"></a></th>
+      <th scope="row" class="shop-img-th"><a href="#"><img src="http://10.202.36.92:8081/${data["interestStoreList"][i]["mainImage"]}" class="img-shop" alt="샘플1"></a></th>
       <td class="table-padding-top"><p><a href="#">${data["interestStoreList"][i]["businessName"]}</a></p>`;
       const tags = data["interestStoreList"][i]["tags"].split(",");
       for (let j = 0; j < tags.length; j++) {
@@ -73,9 +73,11 @@ async function getInterestItem() {
     const data = res["data"];
     console.log(data);
     let innerHTML = document.getElementById("interestItem").innerHTML;
+    let innerHTML_list = document.getElementById("tbody-item").innerHTML;
+    console.log(innerHTML_list);
     for (let i = 0; i < data["interestProductList"].length; i++) {
       innerHTML += `<div class="card">
-      <img src="http://192.168.0.18:8081/${data["interestProductList"][i]["mainImage"]}" class="card-img-top" alt="샘플1">
+      <img src="http://10.202.36.92:8081/${data["interestProductList"][i]["mainImage"]}" class="card-img-top" alt="샘플1">
       <div class="card-body">
           <a href="#" class="card-text">${data["interestProductList"][i]["title"]} 
               <input id="heart" type="checkbox" />
@@ -89,8 +91,33 @@ async function getInterestItem() {
       }
       innerHTML += `</div></div>`;
     }
+
+    for (let i = 0; i < data["interestProductList"].length; i++) {
+      innerHTML_list += `<tr>
+      <th scope="row">`;
+      innerHTML_list +=
+        i +
+        1 +
+        `</th>
+      <td><img src="http://10.202.36.92:8081/${data["interestProductList"][i]["mainImage"]}" class="img-thumbnail" alt="샘플1"></td>
+      <td class="table-padding"><a href="#">${data["interestProductList"][i]["title"]}</a></td>
+      <td class="table-padding"><a href="#">${data["interestProductList"][i]["storeName"]}</a></td>
+      <td class="table-padding"><p>${data["interestProductList"][i]["price"]} <strong>won</strong></p></td>
+      <td class="table-padding">`;
+      const tags = data["interestProductList"][i]["tags"].split(",");
+      for (let j = 0; j < tags.length; j++) {
+        innerHTML_list += `<span class="tag-padding">#${tags[j]} </span>`;
+      }
+      innerHTML_list += `</td>
+      <td class="table-padding">
+          <input id="heart9" type="checkbox" />
+          <label for="heart9" class="label-item">♥</label>
+      </td>
+    </tr>`;
+    }
     console.log(innerHTML);
     document.getElementById("interestItem").innerHTML = innerHTML;
+    document.getElementById("tbody-item").innerHTML = innerHTML_list;
   });
 }
 
