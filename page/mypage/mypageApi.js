@@ -22,12 +22,10 @@ async function getInterestStore() {
   };
   await axios.get(MEMBER_STORE_INTEREST_STORE_URL, config).then((res) => {
     const data = res["data"];
-
-    console.log(data);
     let innerHTML = document.getElementById("interestStore").innerHTML;
     for (let i = 0; i < data["interestStoreList"].length; i++) {
       innerHTML += `<tr>
-      <th scope="row" class="shop-img-th"><a href="#"><img src="${data["interestStoreList"][i]["mainImage"]}" class="img-shop" alt="샘플1"></a></th>
+      <th scope="row" class="shop-img-th"><a href="#"><img src="http://192.168.0.18:8081/${data["interestStoreList"][i]["mainImage"]}" class="img-shop" alt="샘플1"></a></th>
       <td class="table-padding-top"><p><a href="#">${data["interestStoreList"][i]["businessName"]}</a></p>`;
       const tags = data["interestStoreList"][i]["tags"].split(",");
       for (let j = 0; j < tags.length; j++) {
@@ -76,18 +74,22 @@ async function getInterestItem() {
     console.log(data);
     let innerHTML = document.getElementById("interestItem").innerHTML;
     for (let i = 0; i < data["interestProductList"].length; i++) {
-      innerHTML = `<div class="card">
-      <img src="${data["interestProductList"][i]["mainImage"]}" class="card-img-top" alt="샘플1">
+      innerHTML += `<div class="card">
+      <img src="http://192.168.0.18:8081/${data["interestProductList"][i]["mainImage"]}" class="card-img-top" alt="샘플1">
       <div class="card-body">
-          <a href="#" class="card-text">와이드핏 팬츠 
+          <a href="#" class="card-text">${data["interestProductList"][i]["title"]} 
               <input id="heart" type="checkbox" />
               <label for="heart">♥</label></a>
-          <a href="#" class="card-text">올리비아하슬러</a>
-          <p class="card-text">119,700 <strong>won</strong></p>
-          <span>#페미닌 </span><span>#롱스커트</span>
-      </div>
-  </div>`;
+          <a href="#" class="card-text">${data["interestProductList"][i]["storeName"]}</a>
+          <p class="card-text">${data["interestProductList"][i]["price"]} <strong>won</strong></p>
+          `;
+      const tags = data["interestProductList"][i]["tags"].split(",");
+      for (let j = 0; j < tags.length; j++) {
+        innerHTML += `<span>#${tags[j]} </span>`;
+      }
+      innerHTML += `</div></div>`;
     }
+    console.log(innerHTML);
     document.getElementById("interestItem").innerHTML = innerHTML;
   });
 }
