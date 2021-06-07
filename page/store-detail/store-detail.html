@@ -126,20 +126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="combo-box col-lg-3  col-md-4">
-                    <form class="margin-bottom-15px">
-
-                        <select class="form-control" id="sel1" name="sellist1">
-                            <option value="none" selected>
-                                정렬방식을 선택해 주세요.
-                            </option>
-                            <option value="new">최신순</option>
-                            <option value="row-price">가격이 낮은순</option>
-                            <option value="high-price">조회수가 높은순</option>
-                            <option value="like">찜이 많은순</option>
-                        </select>
-                    </form>
-                </div>
+               
                 <!-- Portfolio Grid Items-->
                 <div class="row ">
                     <div id="clothContainer" class="center container-fluid"></div>
@@ -323,25 +310,7 @@
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=10be6ab2ced86490875d35942a466afa"></script>
 
     <script>
-        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-            mapOption = {
-                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
-            };
-
-        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-        var map = new kakao.maps.Map(mapContainer, mapOption);
-        var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
-
-        // 마커를 생성합니다
-        var marker = new kakao.maps.Marker({
-            position: markerPosition
-        });
-
-        // 마커가 지도 위에 표시되도록 설정합니다
-        marker.setMap(map);
-        map.setZoomable(false);
-        
+       
     </script>
     </div>
 
