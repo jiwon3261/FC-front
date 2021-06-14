@@ -14,6 +14,53 @@ document.getElementById("email").innerText = memberInfo["sub"];
 getMyAddress();
 getInterestStore();
 getInterestItem();
+
+// function addCookie(id) {
+//   var items = getCookie("productItems"); // 이미 저장된 값을 쿠키에서 가져오기
+//   var maxItemNum = 5; // 최대 저장 가능한 아이템개수
+//   var expire = 7; // 쿠키값을 저장할 기간
+//   if (items) {
+//     var itemArray = items.split(",");
+//     if (itemArray.indexOf(id) != -1) {
+//       // 이미 존재하는 경우 종료
+//       console.log("Already exists.");
+//     } else {
+//       // 새로운 값 저장 및 최대 개수 유지하기
+//       itemArray.unshift(id);
+//       if (itemArray.length > maxItemNum) itemArray.length = 5;
+//       items = itemArray.join(",");
+//       setCookie("productItems", items, expire);
+//     }
+//   } else {
+//     // 신규 id값 저장하기
+//     setCookie("productItems", id, expire);
+//   }
+// }
+// setCookie("myHobby", "game", "3");
+// function setCookie(cookie_name, value, days) {
+//   var exdate = new Date();
+//   exdate.setDate(exdate.getDate() + days);
+//   // 설정 일수만큼 현재시간에 만료값으로 지정
+
+//   var cookie_value =
+//     escape(value) + (days == null ? "" : "; expires=" + exdate.toUTCString());
+//   document.cookie = cookie_name + "=" + cookie_value;
+// }
+
+// function getCookie(cookie_name) {
+//   var x, y;
+//   var val = document.cookie.split(";");
+
+//   for (var i = 0; i < val.length; i++) {
+//     x = val[i].substr(0, val[i].indexOf("="));
+//     y = val[i].substr(val[i].indexOf("=") + 1);
+//     x = x.replace(/^\s+|\s+$/g, ""); // 앞과 뒤의 공백 제거하기
+//     if (x == cookie_name) {
+//       return unescape(y); // unescape로 디코딩 후 값 리턴
+//     }
+//   }
+// }
+// var recentlyitem = document.getElementById()
 async function getInterestStore() {
   let config = {
     headers: {
@@ -31,16 +78,25 @@ async function getInterestStore() {
       for (let j = 0; j < tags.length; j++) {
         innerHTML += `<span>#${tags[j]} </span>`;
       }
-      innerHTML += `</p><p><span>${data["interestStoreList"][i]["province"]} ${data["interestStoreList"][i]["city"]} ${data["interestStoreList"][i]["neighborhood"]}<span></p></td>
+      innerHTML +=
+        `</p><p><span>${data["interestStoreList"][i]["province"]} ${data["interestStoreList"][i]["city"]} ${data["interestStoreList"][i]["neighborhood"]}<span></p></td>
       <td class="table-padding-top">
-          <input id="heart25" type="checkbox" />
-          <label for="heart25" class="label-shop">♥</label>
+          <input id="heart` +
+        i +
+        10000 +
+        `" type="checkbox" />
+          <label for="heart` +
+        i +
+        10000 +
+        `" class="label-shop">♥</label>
       </td>
     </tr>`;
     }
     document.getElementById("interestStore").innerHTML = innerHTML;
   });
 }
+addCookie("111");
+addCookie();
 
 async function getMyAddress() {
   let config = {
@@ -76,12 +132,19 @@ async function getInterestItem() {
     let innerHTML_list = document.getElementById("tbody-item").innerHTML;
     console.log(innerHTML_list);
     for (let i = 0; i < data["interestProductList"].length; i++) {
-      innerHTML += `<div class="card">
+      innerHTML +=
+        `<div class="card">
       <img src="http://10.202.36.92:8081/${data["interestProductList"][i]["mainImage"]}" class="card-img-top" alt="샘플1">
       <div class="card-body">
           <a href="#" class="card-text">${data["interestProductList"][i]["title"]} 
-              <input id="heart" type="checkbox" />
-              <label for="heart">♥</label></a>
+              <input id="heart` +
+        i +
+        1000 +
+        `" type="checkbox" />
+              <label for="heart` +
+        i +
+        1000 +
+        `">♥</label></a>
           <a href="#" class="card-text">${data["interestProductList"][i]["storeName"]}</a>
           <p class="card-text">${data["interestProductList"][i]["price"]} <strong>won</strong></p>
           `;
@@ -108,10 +171,17 @@ async function getInterestItem() {
       for (let j = 0; j < tags.length; j++) {
         innerHTML_list += `<span class="tag-padding">#${tags[j]} </span>`;
       }
-      innerHTML_list += `</td>
+      innerHTML_list +=
+        `</td>
       <td class="table-padding">
-          <input id="heart9" type="checkbox" />
-          <label for="heart9" class="label-item">♥</label>
+          <input id="heart` +
+        i +
+        100 +
+        `" type="checkbox" />
+          <label for="heart` +
+        i +
+        100 +
+        `" class="label-item">♥</label>
       </td>
     </tr>`;
     }
