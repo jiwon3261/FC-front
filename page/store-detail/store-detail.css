@@ -90,22 +90,16 @@ input[type="checkbox"]:checked + label {
   border-top: 0.5px solid rgb(211, 211, 211);
   padding: 10px;
 }
-#select-box {
-  top: 20px;
-  width: 250px;
-  font-size: 0.8rem;
-  height: 40px;
-  padding: 0.8em 0.5em;
-  border: 1px solid #999;
-  background: url("../../assets/img/portfolio/combo.png") no-repeat 95% 50%;
-  border-radius: 0px;
-  -moz-appearance: none;
-  appearance: none;
-  -webkit-appearance: none;
-}
 .btn-modal {
   border-top-width: 0px;
   border-right-width: 0px;
   border-bottom-width: 0px;
   border-left-width: 0px;
+}
+.heart-box{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 40px;
+  height: 10px;
 }

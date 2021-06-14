@@ -1,16 +1,16 @@
-const MEMBER_ADDRESS_URL = "http://192.168.123.102:8081/api/v1/member/address";
-const STORE_LIST_URL = "http://192.168.123.102:8081/api/v1/store";
-const REFRESH_TOKEN_URL = "http://192.168.123.102:8081/oauth/refresh-token";
+const MEMBER_ADDRESS_URL = "http://10.202.36.92:8081/api/v1/member/address";
+const STORE_LIST_URL = "http://10.202.36.92:8081/api/v1/store";
+const REFRESH_TOKEN_URL = "http://10.202.36.92:8081/oauth/refresh-token";
 
-let selectFlag = 'GPS';
+let selectFlag = "GPS";
 
 let myAddress = null;
 let inputAddressLocation = null;
 
 let map = null;
 
-document.getElementById('myRange').addEventListener('change',(e)=>{
-  if(selectFlag === 'GPS'){
+document.getElementById("myRange").addEventListener("change", (e) => {
+  if (selectFlag === "GPS") {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function (pos) {
         lati = pos.coords.latitude; // 위도
@@ -43,50 +43,55 @@ document.getElementById("myAddressSearchBtn").addEventListener("click", () => {
         Authorization: localStorage.getItem("accessToken"),
       },
     };
-    axios.get(MEMBER_ADDRESS_URL, config).then((res) => {
-      myAddress = res["data"];
-      if (myAddress["city"] === null) {
-        MessageBox.show("현재 주소지가 등록되어있지 않습니다.", "danger", 3000);
-      } else {
-        mapOption = {
-          center: new kakao.maps.LatLng(
+    axios
+      .get(MEMBER_ADDRESS_URL, config)
+      .then((res) => {
+        myAddress = res["data"];
+        if (myAddress["city"] === null) {
+          MessageBox.show(
+            "현재 주소지가 등록되어있지 않습니다.",
+            "danger",
+            3000
+          );
+        } else {
+          mapOption = {
+            center: new kakao.maps.LatLng(
+              myAddress["letitude"],
+              myAddress["longtitude"]
+            ), // 지도의 중심좌표
+            level: 4, // 지도의 확대 레벨
+          };
+
+          var moveLatLon = new kakao.maps.LatLng(
             myAddress["letitude"],
             myAddress["longtitude"]
-          ), // 지도의 중심좌표
-          level: 4, // 지도의 확대 레벨
-        };
-        map = new kakao.maps.Map(mapContainer, mapOption);
-        getStores({
-          page: 0,
-          size: 100,
-          letitude: myAddress["letitude"],
-          longtitude: myAddress["longtitude"],
-          distanceCoordinateDifference: 10,
-        });
-      }
-    }).catch(error=>{
-       const refreshToken = localStorage.getItem('refreshToken');
+          );
 
-       if(refreshToken !== null && refreshToken !== ''){
-        const memberEmail = parseJwt(refreshToken)['sub'];
-        const params = new URLSearchParams({
-          email: memberEmail,
-          refreshToken: refreshToken,
-        }).toString();
+          // 지도 중심을 이동 시킵니다
+          map.panTo(moveLatLon);
 
-        axios.post(REFRESH_TOKEN_URL + "?" + params).then(res=>{
-          const accessToken = res["data"]["accessToken"];
-          const refreshToken = res["data"]["refreshToken"];
-          localStorage.setItem("accessToken", accessToken);
-          localStorage.setItem("refreshToken", refreshToken);
-          document.getElementById("myAddressSearchBtn").click();
-        }).catch(error=>{
+          getStores({
+            page: 0,
+            size: 100,
+            letitude: myAddress["letitude"],
+            longtitude: myAddress["longtitude"],
+            distanceCoordinateDifference: 10,
+          });
+        }
+      })
+      .catch((error) => {
+        const refreshToken = localStorage.getItem("refreshToken");
+
+        if (refreshToken !== null && refreshToken !== "") {
+          const memberEmail = parseJwt(refreshToken)["sub"];
+          const params = new URLSearchParams({
+            email: memberEmail,
+            refreshToken: refreshToken,
+          }).toString();
+        } else {
           MessageBox.show("로그인이 필요한 기능입니다.", "danger", 3000);
-        });
-      }else{
-        MessageBox.show("로그인이 필요한 기능입니다.", "danger", 3000);
-      }
-    });
+        }
+      });
   } else {
     MessageBox.show("로그인이 필요한 기능입니다.", "danger", 3000);
   }
@@ -213,38 +218,50 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         target = target.parentNode;
       }
-      const owner = target.id.split(',')[1];
+      const owner = target.id.split(",")[1];
 
-      axios.get(STORE_LIST_URL + "/" + owner).then(res=>{
-        const data = res['data'];
-        document.getElementById('storeTitle').innerText = data['businessTitle'];
-        document.getElementById('storeAddress').innerText = data['province'] + " " + data['city'] + " " + data['neighborhood'];
+      axios.get(STORE_LIST_URL + "/" + owner).then((res) => {
+        const data = res["data"];
+        document.getElementById("storeTitle").innerText = data["businessTitle"];
+        document.getElementById("storeAddress").innerText =
+          data["province"] + " " + data["city"] + " " + data["neighborhood"];
 
-        data['holiday'].split(',').map(holiday=>{
-          if(holiday !== ''){
-            document.getElementById('holiday_' + holiday).classList.add('store-off');
+        data["holiday"].split(",").map((holiday) => {
+          if (holiday !== "") {
+            document
+              .getElementById("holiday_" + holiday)
+              .classList.add("store-off");
           }
         });
-        
-        document.getElementById("storePhone").innerText = data['phone'];
-        document.getElementById("weekdayStart").innerText = data['weekdayStartTime'];
-        document.getElementById("weekdayEnd").innerText = data['weekdayEndTime'];
-        document.getElementById("weekendStart").innerText = data['weekendStartTime'];
-        document.getElementById("weekendEnd").innerText = data['weekendEndTime'];
 
+        document.getElementById("storePhone").innerText = data["phone"];
+        document.getElementById("weekdayStart").innerText =
+          data["weekdayStartTime"];
+        document.getElementById("weekdayEnd").innerText =
+          data["weekdayEndTime"];
+        document.getElementById("weekendStart").innerText =
+          data["weekendStartTime"];
+        document.getElementById("weekendEnd").innerText =
+          data["weekendEndTime"];
 
-        document.getElementById('redirectStoreDetailBtn').addEventListener('click',()=>{
-          location.href = '../../page/store-detail/store-detail.html?store=' + owner;
-        });
+        document
+          .getElementById("redirectStoreDetailBtn")
+          .addEventListener("click", () => {
+            location.href =
+              "../../page/store-detail/store-detail.html?store=" + owner;
+          });
 
         document.getElementById("detail-dialog").classList.add("on");
-  
+
         var roadviewContainer = document.getElementById("roadview"); //로드뷰를 표시할 div
         var roadview = new kakao.maps.Roadview(roadviewContainer); //로드뷰 객체
         var roadviewClient = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
-  
-        var position = new kakao.maps.LatLng(data['letitude'], data['longtitude']);
-  
+
+        var position = new kakao.maps.LatLng(
+          data["letitude"],
+          data["longtitude"]
+        );
+
         // 특정 위치의 좌표와 가까운 로드뷰의 panoId를 추출하여 로드뷰를 띄운다.
         roadviewClient.getNearestPanoId(position, 50, function (panoId) {
           roadview.setPanoId(panoId, position); //panoId와 중심좌표를 통해 로드뷰 실행
@@ -283,11 +300,11 @@ function getStores(data) {
     let innerHTML = ``;
     res["data"]["storeLists"].map((store) => {
       positions.push({
-        title : store["businessTitle"],
-        latlng: new kakao.maps.LatLng(store["letitude"], store["longtitude"])
+        title: store["businessTitle"],
+        latlng: new kakao.maps.LatLng(store["letitude"], store["longtitude"]),
       });
       innerHTML += `
-          <div id="storeList,${store['owner']}" class="store-card-container">
+          <div onclick="moveToMap(${store["letitude"]},${store["longtitude"]})" id="storeList,${store["owner"]}" class="store-card-container">
               <div class="store-info-text">
                   <div>
                       <a href="#" class="store-name">${store["businessTitle"]}</a>
@@ -301,37 +318,50 @@ function getStores(data) {
                       <div class="like-btn-container">
                           <button id="like1" class="like-btn"><i class="fas fa-heart"></i></button>
                           <div class="bottom-detail">
-                              <div class="like-count">${store['interestCnt']} &nbsp;|&nbsp; 약 ${store['distanceCoordinate'].toFixed(1)}km떨어짐</div>
+                              <div class="like-count">${
+                                store["interestCnt"]
+                              } &nbsp;|&nbsp; 약 ${store[
+        "distanceCoordinate"
+      ].toFixed(1)}km떨어짐</div>
                           </div>
                       </div>
                   </div>
               </div>
               <div class="store-info-img">
-              ${store['imagePath'] === null ? `
-                  <div class="img-area" style="background-image: url('http://192.168.123.102:8081/default_image.PNG');">
+              ${
+                store["imagePath"] === null
+                  ? `
+                  <div class="img-area" style="background-image: url('http://10.202.36.92:8081/default_image.PNG');">
                   </div>
-              ` : `
-                  <div class="img-area" style="background-image: url('http://192.168.123.102:8081/${store['imagePath']}');">
+              `
+                  : `
+                  <div class="img-area" style="background-image: url('http://10.202.36.92:8081/${store["imagePath"]}');">
                   </div>
-              `}
+              `
+              }
               </div>
           </div>
       `;
     });
-    var imageSrc = "../../assets/img/marker-2.png"; 
+    var imageSrc = "../../assets/img/marker-2.png";
 
-    positions.map(position=>{
-      var imageSize = new kakao.maps.Size(24, 35); 
-      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+    positions.map((position) => {
+      var imageSize = new kakao.maps.Size(24, 35);
+      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
       var marker = new kakao.maps.Marker({
-          map: map, // 마커를 표시할 지도
-          position: position.latlng, // 마커를 표시할 위치
-          title : position.title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-          image : markerImage // 마커 이미지 
+        map: map, // 마커를 표시할 지도
+        position: position.latlng, // 마커를 표시할 위치
+        title: position.title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image: markerImage, // 마커 이미지
       });
     });
     document.getElementById("storeList").innerHTML = innerHTML;
   });
+}
+
+function moveToMap(letitude, longtitude) {
+  var moveLatLon = new kakao.maps.LatLng(letitude, longtitude);
+  map.panTo(moveLatLon);
 }
 
 function parseJwt(token) {

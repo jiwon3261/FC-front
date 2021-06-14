@@ -1,4 +1,4 @@
-const ACCESS_TOKEN_URL = "http://192.168.123.102:8081/oauth/token";
+const ACCESS_TOKEN_URL = "http://10.202.36.92:8081/oauth/token";
 
 const loginBtn = document.getElementById("loginBtn");
 loginBtn.addEventListener("click", () => {
@@ -29,19 +29,18 @@ loginBtn.addEventListener("click", () => {
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
 
-      const memberInfo =parseJwt(accessToken);
-      if(memberInfo['role'][0] === 'ROLE_SELLER'){
-        location.href = '../../page/store-detail/store-detail.html';
-      }else{
-        location.href = '../../page/main/main.html';
+      const memberInfo = parseJwt(accessToken);
+      if (memberInfo["role"][0] === "ROLE_SELLER") {
+        location.href = "../../page/store-detail/store-detail.html";
+      } else {
+        location.href = "../../page/main/main.html";
       }
     })
     .catch(function (error) {
-      console.log(error)
-      MessageBox.show(error.response["data"]["msg"],'danger',3000);
+      console.log(error);
+      MessageBox.show(error.response["data"]["msg"], "danger", 3000);
     });
 });
-
 
 function parseJwt(token) {
   try {

@@ -1,5 +1,5 @@
-const TAGS_URL = "http://192.168.123.102:8081/api/v1/store/tags";
-const REGISTER_STORE_URL = "http://192.168.123.102:8081/api/v1/store";
+const TAGS_URL = "http://10.202.36.92:8081/api/v1/store/tags";
+const REGISTER_STORE_URL = "http://10.202.36.92:8081/api/v1/store";
 
 const clickTagList = [];
 
@@ -23,8 +23,8 @@ registerStoreBtn.addEventListener("click", () => {
       holidays.push(document.getElementsByName("holiday")[i].value);
     }
   }
-  if(inputAddressLocation == null){
-    MessageBox.show('주소지를 입력해주세요','danger',3000);
+  if (inputAddressLocation == null) {
+    MessageBox.show("주소지를 입력해주세요", "danger", 3000);
     return;
   }
   axios
@@ -54,15 +54,19 @@ registerStoreBtn.addEventListener("click", () => {
       config
     )
     .then(function (res) {
-      MessageBox.show('정상적으로 업체가 등록되었습니다. 재로그인 바랍니다.','success',3000);
-      localStorage.setItem('accessToken','');
-      localStorage.setItem('refreshToken','');
+      MessageBox.show(
+        "정상적으로 업체가 등록되었습니다. 재로그인 바랍니다.",
+        "success",
+        3000
+      );
+      localStorage.setItem("accessToken", "");
+      localStorage.setItem("refreshToken", "");
       setTimeout(() => {
-        location.href = '../../page/login/login.html';
+        location.href = "../../page/login/login.html";
       }, 3000);
     })
     .catch(function (error) {
-      MessageBox.show(error.response["data"]["msg"],'danger',3000);
+      MessageBox.show(error.response["data"]["msg"], "danger", 3000);
     });
 });
 
@@ -90,7 +94,7 @@ async function getTags() {
     }
 
     if (clickTagList.length === 3) {
-      MessageBox.show("내 매장 태그는 3개까지만 허용합니다.",'danger',3000);
+      MessageBox.show("내 매장 태그는 3개까지만 허용합니다.", "danger", 3000);
       return;
     }
     this.classList.toggle("btn-outline-primary");
