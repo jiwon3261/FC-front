@@ -13,7 +13,7 @@
         <div class="full-container container">
             <div class="item-detial-con item-detial-top">
                 <!-- <div class="avatar-img"></div> -->
-                <button type="button" class="btn btn-outline-primary btn-sm">SHOP바로가기</button>
+                <button type="button" class="btn btn-outline-primary btn-sm" id="shop-redirect">SHOP바로가기</button>
             </div>
             <div class="row item-detial-con">
                 <div class="col-lg-8 item-img-area p-0">
@@ -57,13 +57,12 @@
                         <!-- <button class="comm-like-btn" data-state='true' id="targetProductId">♥</button>
                         <button class="comm-like-btn" data-state='false' id="targetStoreOwner">♥</button> -->
                         
-                        
                     </div>
                     <div class="custom-hr"></div>
                     <div class="info-shop">
                         <div>
-                            <div class="avatar-img"></div>
-                            샤랄라샵
+                            <div class="avatar-img" id="store-img"></div>
+                            <div id="store-name-container"></div>
                         </div>
                         <div id="shop-like-btn"></div>
                         <!-- <button type="button" class="btn btn-outline-primary">♥</button> -->
@@ -71,11 +70,12 @@
                     <div class="custom-hr"></div>
 
                     <div class="shop-new-container">
-                        <div>샤랄라샵의 신상품</div>
-                        <a href="#">더보기</a>
+                        <div id="store-new6">샤랄라샵의 신상품</div>
+                        <a href="#" id="shop-redirect-add">더보기</a>
 
                     </div>
-                    <div class="shop-new-itmes">
+                    <br>
+                    <div class="shop-new-itmes" id="store-new6-img">
                         <div class="new-item">
                             <img src="../../assets/img/portfolio/옷 사진4.png" alt="">
                         </div>
