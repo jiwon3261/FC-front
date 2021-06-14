@@ -1,5 +1,5 @@
 (() => {
-  const serverURI = "http://10.202.36.92:8081";
+  const serverURI = "http://10.202.48.54:8081";
   let nowProductId = 1;
   let owner;
 
@@ -140,7 +140,6 @@
 
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken !== null && accessToken !== "") {
-    alert("로그인함");
     new LikeBtn(document.getElementById("item-like-btn"), true, () => {
       // axios 관심 url에 요청
     });
@@ -148,7 +147,6 @@
       // axios 관심 url에 요청
     });
   } else {
-    alert("로그인안함안함");
     new LikeBtn(document.getElementById("item-like-btn"), false, () => {
       MessageBox.show("로그인이 필요한 서비스 입니다", "danger", 2000);
       return

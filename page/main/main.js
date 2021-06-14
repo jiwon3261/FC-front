@@ -1,6 +1,6 @@
-const MEMBER_ADDRESS_URL = "http://10.202.36.92:8081/api/v1/member/address";
-const STORE_LIST_URL = "http://10.202.36.92:8081/api/v1/store";
-const REFRESH_TOKEN_URL = "http://10.202.36.92:8081/oauth/refresh-token";
+const MEMBER_ADDRESS_URL = "http://10.202.48.54:8081/api/v1/member/address";
+const STORE_LIST_URL = "http://10.202.48.54:8081/api/v1/store";
+const REFRESH_TOKEN_URL = "http://10.202.48.54:8081/oauth/refresh-token";
 
 let selectFlag = "GPS";
 
@@ -331,11 +331,11 @@ function getStores(data) {
               ${
                 store["imagePath"] === null
                   ? `
-                  <div class="img-area" style="background-image: url('http://10.202.36.92:8081/default_image.PNG');">
+                  <div class="img-area" style="background-image: url('http://10.202.48.54:8081/default_image.PNG');">
                   </div>
               `
                   : `
-                  <div class="img-area" style="background-image: url('http://10.202.36.92:8081/${store["imagePath"]}');">
+                  <div class="img-area" style="background-image: url('http://10.202.48.54:8081/${store["imagePath"]}');">
                   </div>
               `
               }

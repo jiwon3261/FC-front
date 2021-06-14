@@ -1,4 +1,4 @@
-const ACCESS_TOKEN_URL = "http://10.202.36.92:8081/oauth/token";
+const ACCESS_TOKEN_URL = "http://10.202.48.54:8081/oauth/token";
 
 const loginBtn = document.getElementById("loginBtn");
 loginBtn.addEventListener("click", () => {

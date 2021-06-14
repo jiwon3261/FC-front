@@ -1,5 +1,5 @@
-const PRODUCT_TAG_URL = "http://10.202.36.92:8081/api/v1/product/tags";
-const PRODUCT_URL = "http://10.202.36.92:8081/api/v1/product";
+const PRODUCT_TAG_URL = "http://10.202.48.54:8081/api/v1/product/tags";
+const PRODUCT_URL = "http://10.202.48.54:8081/api/v1/product";
 
 const uploadFileList = [];
 const selectTagList = [];

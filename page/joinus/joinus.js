@@ -1,4 +1,4 @@
-const MEMBER_URL = "http://10.202.36.92:8081/api/v1/member";
+const MEMBER_URL = "http://10.202.48.54:8081/api/v1/member";
 
 const registerMemberBtn = document.getElementById("registerMemberBtn");
 let inputAddressLocation = null;

@@ -1,6 +1,6 @@
-const STORE_DETAIL_URL = "http://10.202.36.92:8081/api/v1/store/";
-const PRODUCT_LIST_URL = "http://10.202.36.92:8081/api/v1/product/";
-const PRODUCT_INTEREST_URL = "http://10.202.36.92:8081/api/v1/member/";
+const STORE_DETAIL_URL = "http://10.202.48.54:8081/api/v1/store/";
+const PRODUCT_LIST_URL = "http://10.202.48.54:8081/api/v1/product/";
+const PRODUCT_INTEREST_URL = "http://10.202.48.54:8081/api/v1/member/";
 
 const urlParams = new URLSearchParams(window.location.search);
 const targetStore = urlParams.get('store');
@@ -26,13 +26,13 @@ async function getProductList() {
     // console.log(cloth);
     for (let i = 0; i < cloth.productList.length; i++) {
       let innerHTML = '';
-      // console.log("http://10.202.36.92:8081/" + cloth['productList'][i]['mainImagePath'])
+      // console.log("http://10.202.48.54:8081/" + cloth['productList'][i]['mainImagePath'])
       innerHTML += ` 
           <div class="col-lg-3 col-md-4 col-sm-6 clo-card shirt${cloth.productList[i]["category"]}>
           <div class="clo " id="shirt">
               <div class="center">
                   <div class="clonths-img-box">
-                      <img class="img" src="http://10.202.36.92:8081/${cloth.productList[i]["mainImagePath"]}" />
+                      <img class="img" src="http://10.202.48.54:8081/${cloth.productList[i]["mainImagePath"]}" />
                   </div>
               </div>
               <br>
